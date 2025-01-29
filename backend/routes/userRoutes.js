@@ -3,7 +3,7 @@ const {
   registerUser,
   loginUser,
   logout,
-//   forgotPassword,
+  // forgotPassword,
 //   resetPassword,
 //   getUserDetails,
 //   updatePassword,

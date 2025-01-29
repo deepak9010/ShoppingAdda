@@ -3,7 +3,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const sendToken = require("../utils/jwtToken");
 // const sendEmail = require("../utils/sendEmail");
-// const crypto = require("crypto");
+const crypto = require("crypto");
 // const cloudinary = require("cloudinary");
 
 // Register a User
@@ -64,7 +64,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 //   const user = await User.findOne({ email: req.body.email });
 
 //   if (!user) {
-//     return next(new ErrorHander("User not found", 404));
+//     return next(new ErrorHandler("User not found", 404));
 //   }
 
 //   // Get ResetPassword Token
@@ -95,7 +95,7 @@ exports.logout = catchAsyncErrors(async (req, res, next) => {
 
 //     await user.save({ validateBeforeSave: false });
 
-//     return next(new ErrorHander(error.message, 500));
+//     return next(new ErrorHandler(error.message, 500));
 //   }
 // });
 
