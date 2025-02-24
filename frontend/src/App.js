@@ -7,7 +7,7 @@ import Footer from "./component/layout/Footer/Footer.js";
 import Home from "./component/Home/Home.js";
 import WebFont from "webfontloader";
 
-
+import { ToastContainer } from "react-toastify";
 
 function App() {
   useEffect(() => {
@@ -20,6 +20,7 @@ function App() {
 
   return (
     <Router>
+         <ToastContainer position="top-right" autoClose={3000} />
       <Header />
 
       <Routes>

@@ -1,42 +1,45 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { CgMouse } from "react-icons/cg";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
-// import MetaData from "../layout/MetaData";
-// import { clearErrors, getProduct } from "../../actions/productAction";
-// import { useSelector, useDispatch } from "react-redux";
-// import Loader from "../layout/Loader/Loader";
+import MetaData from "../layout/MetaData.js";
+import { getProduct } from "../../actions/productAction";
+// import { getProduct } from "../../slices/productSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Loader from "../layout/Loader/Loader";
 // import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-
-const product ={
-  name:"blue",
-  images:[{url: "https://i.ibb.co/DRST11n/1.webp"}],
-  price:"$200",
-  _id:"deepak",
-}
 
 
 const Home = () => {
-//   const alert = useAlert();
-//   const dispatch = useDispatch();
-//   const { loading, error, products } = useSelector((state) => state.products);
+  // const alert = useAlert();
+  const dispatch = useDispatch();
+  const { loading, error, products } = useSelector((state) => state.products);
 
-//   useEffect(() => {
-//     if (error) {
-//       alert.error(error);
-//       dispatch(clearErrors());
-//     }
-//     dispatch(getProduct());
-//   }, [dispatch, error, alert]);
+  useEffect(() => {
+    // if (error) {
+    //  return alert.error(error);
+    // //  alert.error(error);
+    //   // dispatch(clearErrors());
+    // }
+    if (error) {
+      toast.error(error);
+    } else if (products.length > 0) {
+      toast.success("Products loaded successfully!");
+    }
+    dispatch(getProduct());
+  // }, [dispatch, error, alert]);
+}, [dispatch]);
 
   return (
-    // <Fragment>
-    //   {loading ? (
-    //     <Loader />
-    //   ) : (
+    <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
         <Fragment>
-          {/* <MetaData title="ECOMMERCE" /> */}
+          <MetaData title="ECOMMERCE" />
 
           <div className="banner">
             <p>Welcome to Ecommerce</p>
@@ -52,20 +55,14 @@ const Home = () => {
           <h2 className="homeHeading">Featured Products</h2>
 
           <div className="container" id="container">
-            <ProductCard product={product} />
-            <ProductCard product={product} />
-            <ProductCard product={product} />
-            <ProductCard product={product} />
-            <ProductCard product={product} />
-            <ProductCard product={product} />
-            {/* {products &&
+            {products &&
               products.map((product) => (
                 <ProductCard key={product._id} product={product} />
-              ))} */}
+              ))}
           </div>
         </Fragment>
-    //   )}
-    // </Fragment>
+      )}
+    </Fragment>
   );
 };
 

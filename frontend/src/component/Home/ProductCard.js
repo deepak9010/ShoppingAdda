@@ -13,8 +13,8 @@ const ProductCard = ({ product }) => {
       edit: false,
       color:"rgba(20,20,20,0.1)",
       activeColor: "tomato",
-      value: 2.5,
-      size: 24,  
+      value: product.ratings || 0,
+      size: window.innerWidth < 600 ? 20 : 25,  
       isHalf: true,
   };
   return (
@@ -23,15 +23,15 @@ const ProductCard = ({ product }) => {
       <img src={product.images[0].url} alt={product.name} />
       <p>{product.name}</p>
       <div>
-        <ReactStars {...options} /> <span>(256 Reviews)</span>
+        <ReactStars {...options} />
         {/* <Rating {...options} />{" "} */}
-        {/* <span className="productCardSpan">
+        <span className="productCardSpan">
           {" "}
           ({product.numOfReviews} Reviews)
-        </span> */}
+        </span>
       </div>
 
-      {/* <span>{`₹${product.price}`}</span> */}
+      <span>{`₹${product.price}`}</span>
     </Link>
   );
 };
