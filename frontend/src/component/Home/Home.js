@@ -19,6 +19,7 @@ const Home = () => {
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
+    console.log("Redux error state:", error); 
     // if (error) {
     //  return alert.error(error);
     // //  alert.error(error);
@@ -26,12 +27,16 @@ const Home = () => {
     // }
     if (error) {
       toast.error(error);
-    } else if (products.length > 0) {
-      toast.success("Products loaded successfully!");
+      // dispatch(clearErrors()); 
     }
+    // if (error) {
+    //   toast.error(error);
+    // } else if (products.length > 0) {
+    //   toast.success("Products loaded successfully!");
+    // }
     dispatch(getProduct());
   // }, [dispatch, error, alert]);
-}, [dispatch]);
+}, [dispatch,error]);
 
   return (
     <Fragment>
