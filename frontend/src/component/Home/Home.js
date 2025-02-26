@@ -3,7 +3,7 @@ import { CgMouse } from "react-icons/cg";
 import "./Home.css";
 import ProductCard from "./ProductCard.js";
 import MetaData from "../layout/MetaData.js";
-import { getProduct } from "../../actions/productAction";
+import { clearErrors, getProduct } from "../../actions/productAction";
 // import { getProduct } from "../../slices/productSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../layout/Loader/Loader";
@@ -19,7 +19,7 @@ const Home = () => {
   const { loading, error, products } = useSelector((state) => state.products);
 
   useEffect(() => {
-    console.log("Redux error state:", error); 
+
     // if (error) {
     //  return alert.error(error);
     // //  alert.error(error);
@@ -27,13 +27,9 @@ const Home = () => {
     // }
     if (error) {
       toast.error(error);
-      // dispatch(clearErrors()); 
+      dispatch(clearErrors()); 
     }
-    // if (error) {
-    //   toast.error(error);
-    // } else if (products.length > 0) {
-    //   toast.success("Products loaded successfully!");
-    // }
+
     dispatch(getProduct());
   // }, [dispatch, error, alert]);
 }, [dispatch,error]);

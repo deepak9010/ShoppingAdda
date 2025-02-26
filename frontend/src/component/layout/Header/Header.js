@@ -1,16 +1,7 @@
-// import React from 'react'
-// import { ReactNavbar } from "overlay-navbar";
-
-
-// const Header = () => {
-//   return  <ReactNavbar />
-// }
-
-// export default Header
-
 import React, { useState } from "react";
 import "@coreui/coreui/dist/css/coreui.min.css";
-import { Link } from "react-router-dom";
+import "./Header.css";
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   CButton,
@@ -28,13 +19,24 @@ import {
 import { ShoppingCart, Search, User } from "lucide-react"; // Import icons
 
 const Header = () => {
+  const navigate = useNavigate();  
   const [visible, setVisible] = useState(false);
 
+   const handleItemClick = () => {
+     setVisible(false);
+   };
+
+  const handleSearchClick = () => {
+    navigate('/search');
+    setVisible(false);
+  };
+  
+
   return (
-    <CNavbar expand="lg" className="bg-body-tertiary">
+    <CNavbar expand="lg" className="bg-body-tertiary custom-navbar">
       <CContainer fluid>
         <CNavbarBrand>
-          <Link to="/" className="text-decoration-none text-dark">Navbar</Link>
+          <Link to="/" className="text-decoration-none text-dark" onClick={handleItemClick}>Navbar</Link>
         </CNavbarBrand>
         {/* Toggler */}
         <CNavbarToggler onClick={() => setVisible(!visible)} />
@@ -43,16 +45,16 @@ const Header = () => {
         <CCollapse className="navbar-collapse" visible={visible}>
           <CNavbarNav className="me-auto">
           <CNavItem>
-              <Link to="/" className="nav-link">Home</Link>
+              <Link to="/" className="nav-link" onClick={handleItemClick}>Home</Link>
             </CNavItem>
             <CNavItem>
-              <Link to="/product" className="nav-link">Products</Link> 
+              <Link to="/products" className="nav-link" onClick={handleItemClick}>Products</Link> 
             </CNavItem>
             <CNavItem>
-              <Link to="/about" className="nav-link">Contact</Link> 
+              <Link to="/about" className="nav-link" onClick={handleItemClick}>Contact</Link> 
             </CNavItem>
             <CNavItem>
-              <Link to="/contact" className="nav-link">About</Link>
+              <Link to="/contact" className="nav-link" onClick={handleItemClick}>About</Link>
             </CNavItem>
         
           </CNavbarNav>
@@ -60,16 +62,14 @@ const Header = () => {
           {/* Right Side - Search, Profile, Cart Icons */}
           <CNavbarNav className="ms-auto d-flex align-items-center gap-3">
             {/* Search Bar */}
-            <CForm className="d-flex">
-              <CFormInput type="search" className="me-2" placeholder="Search" />
-              <CButton type="submit" color="success" variant="outline">
-                <Search size={20} />
-              </CButton>
-            </CForm>
+
+            <CButton color="success" variant="outline" onClick={handleSearchClick}>
+            <Search size={20} />
+          </CButton>
 
                {/* Cart Icon */}
                <CNavItem>
-              <CNavLink href="/cart">
+              <CNavLink href="/cart" onClick={handleItemClick}>
                 <ShoppingCart size={24} />
               </CNavLink>
             </CNavItem>
@@ -77,7 +77,7 @@ const Header = () => {
 
             {/* Profile Icon */}
             <CNavItem>
-              <CNavLink href="/profile">
+              <CNavLink href="/profile" onClick={handleItemClick}>
                 <User size={24} />
               </CNavLink>
             </CNavItem>

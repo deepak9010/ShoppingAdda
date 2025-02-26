@@ -3,14 +3,14 @@ import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
-//   clearErrors,
+  clearErrors,
   getProductDetails
 //   newReview,
 } from "../../actions/productAction";
-// import ReviewCard from "./ReviewCard.js";
-// import Loader from "../layout/Loader/Loader";
+import ReviewCard from "./ReviewCard.js";
+import Loader from "../layout/Loader/Loader";
 // import { useAlert } from "react-alert";
-// import MetaData from "../layout/MetaData";
+import MetaData from "../layout/MetaData";
 // import { addItemsToCart } from "../../actions/cartAction";
 // import {
 //   Dialog,
@@ -19,18 +19,17 @@ import {
 //   DialogTitle,
 //   Button,
 // } from "@material-ui/core";
-// import { Rating } from "@material-ui/lab";
+import Rating from "@mui/material/Rating";
 // import { NEW_REVIEW_RESET } from "../../constants/productConstants";
-// import { toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { useParams } from "react-router-dom";
 
-// const ProductDetails = ({ match }) => {
+
 const ProductDetails = () => {
     const { id } = useParams();
   const dispatch = useDispatch();
-//   const alert = useAlert();
 
   const { product, loading, error } = useSelector(
     (state) => state.productDetails
@@ -40,59 +39,60 @@ const ProductDetails = () => {
 //     (state) => state.newReview
 //   );
 
-//   const options = {
-//     size: "large",
-//     value: product.ratings,
-//     readOnly: true,
-//     precision: 0.5,
-//   };
+  // const options = {
+  //   value: product.ratings,
+  //   size: "large",
+  //   readOnly: true,
+  //   precision: 0.5,
+  // };
 
-//   const [quantity, setQuantity] = useState(1);
-//   const [open, setOpen] = useState(false);
-//   const [rating, setRating] = useState(0);
-//   const [comment, setComment] = useState("");
+  const [quantity, setQuantity] = useState(1);
+  const [open, setOpen] = useState(false);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
-//   const increaseQuantity = () => {
-//     if (product.Stock <= quantity) return;
+  const increaseQuantity = () => {
+    if (product.Stock <= quantity) return;
 
-//     const qty = quantity + 1;
-//     setQuantity(qty);
-//   };
+    const qty = quantity + 1;
+    setQuantity(qty);
+  };
 
-//   const decreaseQuantity = () => {
-//     if (1 >= quantity) return;
+  const decreaseQuantity = () => {
+    if (1 >= quantity) return;
 
-//     const qty = quantity - 1;
-//     setQuantity(qty);
-//   };
+    const qty = quantity - 1;
+    setQuantity(qty);
+  };
 
-//   const addToCartHandler = () => {
-//     dispatch(addItemsToCart(match.params.id, quantity));
-//     alert.success("Item Added To Cart");
-//   };
+  const addToCartHandler = () => {
+    // dispatch(addItemsToCart(id, quantity));
+    // alert.success("Item Added To Cart");
+  };
 
-//   const submitReviewToggle = () => {
-//     open ? setOpen(false) : setOpen(true);
-//   };
+  const submitReviewToggle = () => {
+    open ? setOpen(false) : setOpen(true);
+  };
 
-//   const reviewSubmitHandler = () => {
-//     const myForm = new FormData();
+  const reviewSubmitHandler = () => {
+    // const myForm = new FormData();
 
-//     myForm.set("rating", rating);
-//     myForm.set("comment", comment);
-//     myForm.set("productId", match.params.id);
+    // myForm.set("rating", rating);
+    // myForm.set("comment", comment);
+    // myForm.set("productId", id);
 
-//     dispatch(newReview(myForm));
+    // dispatch(newReview(myForm));
 
-//     setOpen(false);
-//   };
+    // setOpen(false);
+  };
 
   useEffect(() => {
     console.log("Fetching product details for ID:", id);
-    // if (error) {
-    //   alert.error(error);
-    //   dispatch(clearErrors());
-    // }
+    if (error) {
+      // alert.error(error);
+       toast.error(error);
+      dispatch(clearErrors());
+    }
 
     // if (reviewError) {
     // //   alert.error(reviewError);
@@ -107,15 +107,15 @@ const ProductDetails = () => {
     dispatch(getProductDetails(id));
 
 //   }, [dispatch, match.params.id, error, alert, reviewError, success]);
-   }, [dispatch,id]);
+   }, [dispatch, id, error]);
 
   return (
-    // <Fragment>
-    //   {loading ? (
-    //     <Loader />
-    //   ) : (
+    <Fragment>
+      {loading ? (
+        <Loader />
+      ) : (
         <Fragment>
-          {/* <MetaData title={`${product.name} -- ECOMMERCE`} /> */}
+          <MetaData title={`${product.name} -- ECOMMERCE`} />
           <div className="ProductDetails">
             <div>
               <Carousel>
@@ -131,13 +131,18 @@ const ProductDetails = () => {
               </Carousel>
             </div>
 
-            {/* <div>
+           <div>
               <div className="detailsBlock-1">
                 <h2>{product.name}</h2>
                 <p>Product # {product._id}</p>
               </div>
               <div className="detailsBlock-2">
-                <Rating {...options} />
+              <Rating 
+                   value= {product.ratings || 0}
+                   size= "large"
+                   readOnly
+                   precision= {0.5}
+               />
                 <span className="detailsBlock-2-span">
                   {" "}
                   ({product.numOfReviews} Reviews)
@@ -174,10 +179,10 @@ const ProductDetails = () => {
               <button onClick={submitReviewToggle} className="submitReview">
                 Submit Review
               </button>
-            </div> */}
+            </div> 
           </div>
 
-          {/* <h3 className="reviewsHeading">REVIEWS</h3> */}
+          <h3 className="reviewsHeading">REVIEWS</h3>
 
           {/* <Dialog
             aria-labelledby="simple-dialog-title"
@@ -210,7 +215,7 @@ const ProductDetails = () => {
             </DialogActions>
           </Dialog> */}
 
-          {/* {product.reviews && product.reviews[0] ? (
+          {product.reviews && product.reviews[0] ? (
             <div className="reviews">
               {product.reviews &&
                 product.reviews.map((review) => (
@@ -219,10 +224,10 @@ const ProductDetails = () => {
             </div>
           ) : (
             <p className="noReviews">No Reviews Yet</p>
-          )} */}
+          )}
         </Fragment>
-    //   )}
-    // </Fragment>
+      )}
+    </Fragment>
   );
 };
 

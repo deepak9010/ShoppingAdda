@@ -3,11 +3,11 @@
     scroll-behavior: smooth;
   }
   
-  /* body {
+  body {
     cursor: url("./images/cursor.png"), auto;
-  } */
+  } 
   
-/* 
+
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -24,4 +24,4 @@
   }
   .redColor {
     color: red !important;
-  } */
+  }
