@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { productReducer, productDetailsReducer } from "./reducers/productReducer";
+import { userReducer } from "./reducers/userReducer";
 // import  productReducer  from "./slices/productSlice";
 
 
@@ -7,6 +8,7 @@ const store = configureStore({
   reducer: {
     products: productReducer, 
     productDetails: productDetailsReducer,
+    user: userReducer,
   },
   devTools: process.env.NODE_ENV !== "production", // Enables Redux DevTools in development mode
 });

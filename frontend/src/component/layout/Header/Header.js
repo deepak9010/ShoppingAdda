@@ -77,7 +77,7 @@ const Header = () => {
 
             {/* Profile Icon */}
             <CNavItem>
-              <CNavLink href="/profile" onClick={handleItemClick}>
+              <CNavLink href="/login" onClick={handleItemClick}>
                 <User size={24} />
               </CNavLink>
             </CNavItem>
