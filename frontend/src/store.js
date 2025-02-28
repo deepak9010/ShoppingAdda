@@ -1,6 +1,30 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { productReducer, productDetailsReducer } from "./reducers/productReducer";
-import { userReducer } from "./reducers/userReducer";
+import {
+  newProductReducer,
+  newReviewReducer,
+  productDetailsReducer,
+  productReducer,
+  productReviewsReducer,
+  productsReducer,
+  reviewReducer,
+} from "./reducers/productReducer";
+
+import {
+  allUsersReducer,
+  forgotPasswordReducer,
+  profileReducer,
+  userDetailsReducer,
+  userReducer,
+} from "./reducers/userReducer";
+
+// import { cartReducer } from "./reducers/cartReducer";
+// import {
+//   allOrdersReducer,
+//   myOrdersReducer,
+//   newOrderReducer,
+//   orderDetailsReducer,
+//   orderReducer,
+// } from "./reducers/orderReducer";
 // import  productReducer  from "./slices/productSlice";
 
 
@@ -9,6 +33,8 @@ const store = configureStore({
     products: productReducer, 
     productDetails: productDetailsReducer,
     user: userReducer,
+    profile: profileReducer,
+    forgotPassword: forgotPasswordReducer,
   },
   devTools: process.env.NODE_ENV !== "production", // Enables Redux DevTools in development mode
 });

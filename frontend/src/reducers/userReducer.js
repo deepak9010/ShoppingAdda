@@ -104,7 +104,7 @@ import {
   
   export const profileReducer = (state = {}, action) => {
     switch (action.type) {
-      case UPDATE_PROFILE_REQUEST:
+    case UPDATE_PROFILE_REQUEST:
       case UPDATE_PASSWORD_REQUEST:
       case UPDATE_USER_REQUEST:
       case DELETE_USER_REQUEST:
