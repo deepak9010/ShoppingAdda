@@ -18,13 +18,13 @@ import {
 } from "./reducers/userReducer";
 
 import { cartReducer } from "./reducers/cartReducer";
-// import {
-//   allOrdersReducer,
-//   myOrdersReducer,
-//   newOrderReducer,
-//   orderDetailsReducer,
-//   orderReducer,
-// } from "./reducers/orderReducer";
+import {
+  allOrdersReducer,
+  myOrdersReducer,
+  newOrderReducer,
+  orderDetailsReducer,
+  orderReducer,
+} from "./reducers/orderReducer";
 // import  productReducer  from "./slices/productSlice";
 
 const initialState = {
@@ -47,6 +47,8 @@ const store = configureStore({
     profile: profileReducer,
     forgotPassword: forgotPasswordReducer,
     cart: cartReducer,
+    newOrder: newOrderReducer,
+    myOrders: myOrdersReducer,
   },
   preloadedState: initialState,
   devTools: process.env.NODE_ENV !== "production", // Enables Redux DevTools in development mode

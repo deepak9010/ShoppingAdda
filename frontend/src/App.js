@@ -1,6 +1,6 @@
 import './App.css';
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import Header from "./component/layout/Header/Header.js";
 import Footer from "./component/layout/Footer/Footer.js";
@@ -22,10 +22,11 @@ import ResetPassword from "./component/User/ResetPassword";
 import Cart from "./component/Cart/Cart";
 import Shipping from "./component/Cart/Shipping";
 import ConfirmOrder from "./component/Cart/ConfirmOrder";
-// import axios from "axios";
-// import Payment from "./component/Cart/Payment";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
+import axios from "axios";
+import Payment from "./component/Cart/Payment";
+import PayCard from "./component/Cart/PayCard";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 // import OrderSuccess from "./component/Cart/OrderSuccess";
 // import MyOrders from "./component/Order/MyOrders";
 // import OrderDetails from "./component/Order/OrderDetails";
@@ -49,6 +50,18 @@ import { ToastContainer } from "react-toastify";
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
 
+  // const [stripeApiKey, setStripeApiKey] = useState("");
+  // const [stripePromise, setStripePromise] = useState(null);
+
+  // async function getStripeApiKey() {
+  //   const { data } = await axios.get("/api/v1/stripeapikey");
+  //   console.log("Stripe API Key received:", data.stripeApiKey);
+
+  //   setStripeApiKey(data.stripeApiKey);
+  // }
+
+
+
   useEffect(() => {
     WebFont.load({
       google: {
@@ -57,14 +70,17 @@ function App() {
     });
 
     store.dispatch(loadUser());
-
+    
+    // getStripeApiKey();
   }, []);
+
 
   return (
     <Router>
       <ToastContainer position="top-right" autoClose={3000} />
       <Header />
       {isAuthenticated && <UserOptions user={user} />}
+      
 
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -87,7 +103,25 @@ function App() {
           <Route path="/password/update" element={<UpdatePassword />} />
           <Route exact path="/shipping" element={<Shipping />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
+          {/* <Route exact path="/process/payment" element={<Payment />} /> */}
+          <Route exact path="/process/payment" element={<PayCard />} />
         </Route>
+  
+{/* 
+         <Route
+           path="/process/payment"
+           element={
+             <Elements stripe={stripePromise}>
+               <ProtectedRoute>
+                 <Payment />
+               </ProtectedRoute>
+             </Elements>
+           }
+         /> */}
+
+
+
 
         {/* <ProtectedRoute exact path="/success" component={OrderSuccess} /> */}
 
@@ -162,6 +196,7 @@ function App() {
           }
         /> */}
       </Routes>
+
 
       <Footer />
     </Router>
