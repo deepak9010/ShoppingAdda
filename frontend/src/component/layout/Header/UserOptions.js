@@ -1,21 +1,14 @@
 import React, { Fragment, useState } from "react";
 import "./Header.css";
-// import { SpeedDial, SpeedDialAction } from "@material-ui/lab";
-// import Backdrop from "@material-ui/core/Backdrop";
-// import DashboardIcon from "@material-ui/icons/Dashboard";
-// import PersonIcon from "@material-ui/icons/Person";
-// import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-// import ListAltIcon from "@material-ui/icons/ListAlt";
-// import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SpeedDial, SpeedDialAction, Backdrop } from "@mui/material";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useNavigate } from "react-router-dom";
-// import { useAlert } from "react-alert";
+
+
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
@@ -23,26 +16,24 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const UserOptions = ({ user }) => {
-//   const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const [open, setOpen] = useState(false);
-//   const history = useHistory();
   const navigate = useNavigate();
-//   const alert = useAlert();
   const dispatch = useDispatch();
 
   const options = [
     { icon: <ListAltIcon />, name: "Orders", func: orders },
     { icon: <PersonIcon />, name: "Profile", func: account },
-    // {
-    //   icon: (
-    //     <ShoppingCartIcon
-    //       style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
-    //     />
-    //   ),
-    //   name: `Cart(${cartItems.length})`,
-    //   func: cart,
-    // },
+    {
+      icon: (
+        <ShoppingCartIcon
+          style={{ color: cartItems.length > 0 ? "tomato" : "unset" }}
+        />
+      ),
+      name: `Cart(${cartItems.length})`,
+      func: cart,
+    },
     { icon: <ExitToAppIcon />, name: "Logout", func: logoutUser },
   ];
 
@@ -55,7 +46,7 @@ const UserOptions = ({ user }) => {
   }
 
   function dashboard() {
-    // history.push("/admin/dashboard");
+
     navigate("/admin/dashboard");
   }
 

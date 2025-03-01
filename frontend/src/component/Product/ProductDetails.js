@@ -4,14 +4,13 @@ import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
-  getProductDetails
-//   newReview,
+  getProductDetails,
+  // newReview,
 } from "../../actions/productAction";
 import ReviewCard from "./ReviewCard.js";
 import Loader from "../layout/Loader/Loader";
-// import { useAlert } from "react-alert";
 import MetaData from "../layout/MetaData";
-// import { addItemsToCart } from "../../actions/cartAction";
+import { addItemsToCart } from "../../actions/cartAction";
 // import {
 //   Dialog,
 //   DialogActions,
@@ -20,7 +19,7 @@ import MetaData from "../layout/MetaData";
 //   Button,
 // } from "@material-ui/core";
 import Rating from "@mui/material/Rating";
-// import { NEW_REVIEW_RESET } from "../../constants/productConstants";
+import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -35,9 +34,9 @@ const ProductDetails = () => {
     (state) => state.productDetails
   );
 
-//   const { success, error: reviewError } = useSelector(
-//     (state) => state.newReview
-//   );
+  // const { success, error: reviewError } = useSelector(
+  //   (state) => state.newReview
+  // );
 
   // const options = {
   //   value: product.ratings,
@@ -66,8 +65,8 @@ const ProductDetails = () => {
   };
 
   const addToCartHandler = () => {
-    // dispatch(addItemsToCart(id, quantity));
-    // alert.success("Item Added To Cart");
+    dispatch(addItemsToCart(id, quantity));
+    toast.success("Item Added To Cart");
   };
 
   const submitReviewToggle = () => {
@@ -87,28 +86,24 @@ const ProductDetails = () => {
   };
 
   useEffect(() => {
-    console.log("Fetching product details for ID:", id);
     if (error) {
-      // alert.error(error);
        toast.error(error);
       dispatch(clearErrors());
     }
 
     // if (reviewError) {
-    // //   alert.error(reviewError);
+    //   toast.error(reviewError);
     //   dispatch(clearErrors());
     // }
 
     // if (success) {
-    //   alert.success("Review Submitted Successfully");
+    //   toast.success("Review Submitted Successfully");
     //   dispatch({ type: NEW_REVIEW_RESET });
     // }
-    // dispatch(getProductDetails(match.params.id));
     dispatch(getProductDetails(id));
 
-//   }, [dispatch, match.params.id, error, alert, reviewError, success]);
+  // }, [dispatch, id, error, reviewError, success]);
    }, [dispatch, id, error]);
-
   return (
     <Fragment>
       {loading ? (

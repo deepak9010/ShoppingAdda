@@ -19,9 +19,9 @@ import UpdateProfile from "./component/User/UpdateProfile";
 import UpdatePassword from "./component/User/UpdatePassword";
 import ForgotPassword from "./component/User/ForgotPassword";
 import ResetPassword from "./component/User/ResetPassword";
-// import Cart from "./component/Cart/Cart";
-// import Shipping from "./component/Cart/Shipping";
-// import ConfirmOrder from "./component/Cart/ConfirmOrder";
+import Cart from "./component/Cart/Cart";
+import Shipping from "./component/Cart/Shipping";
+import ConfirmOrder from "./component/Cart/ConfirmOrder";
 // import axios from "axios";
 // import Payment from "./component/Cart/Payment";
 // import { Elements } from "@stripe/react-stripe-js";
@@ -76,24 +76,18 @@ function App() {
          {/* <Route exact path="/contact" component={Contact} /> */}
 
         {/* <Route exact path="/about" component={About} /> */}
-        
+        <Route exact path="/password/forgot" element={<ForgotPassword />} />
+        <Route exact path="/password/reset/:token" element={<ResetPassword />} />
+        <Route exact path="/login" element={<LoginSignUp />} />
+        <Route exact path="/cart" element={<Cart />} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/account" element={<Profile />} />
           <Route path="/me/update" element={<UpdateProfile />} />
           <Route path="/password/update" element={<UpdatePassword />} />
+          <Route exact path="/shipping" element={<Shipping />} />
+          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
         </Route>
-
-
-        <Route exact path="/password/forgot" element={<ForgotPassword />} />
-
-        <Route exact path="/password/reset/:token" element={<ResetPassword />} />
-
-        <Route exact path="/login" element={<LoginSignUp />} />
-
-        {/* <Route exact path="/cart" component={Cart} /> */}
-
-        {/* <ProtectedRoute exact path="/shipping" component={Shipping} /> */}
 
         {/* <ProtectedRoute exact path="/success" component={OrderSuccess} /> */}
 

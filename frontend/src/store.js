@@ -17,7 +17,7 @@ import {
   userReducer,
 } from "./reducers/userReducer";
 
-// import { cartReducer } from "./reducers/cartReducer";
+import { cartReducer } from "./reducers/cartReducer";
 // import {
 //   allOrdersReducer,
 //   myOrdersReducer,
@@ -27,6 +27,17 @@ import {
 // } from "./reducers/orderReducer";
 // import  productReducer  from "./slices/productSlice";
 
+const initialState = {
+  cart: {
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
+    shippingInfo: localStorage.getItem("shippingInfo")
+      ? JSON.parse(localStorage.getItem("shippingInfo"))
+      : {},
+  },
+};
+
 
 const store = configureStore({
   reducer: {
@@ -35,7 +46,9 @@ const store = configureStore({
     user: userReducer,
     profile: profileReducer,
     forgotPassword: forgotPasswordReducer,
+    cart: cartReducer,
   },
+  preloadedState: initialState,
   devTools: process.env.NODE_ENV !== "production", // Enables Redux DevTools in development mode
 });
 

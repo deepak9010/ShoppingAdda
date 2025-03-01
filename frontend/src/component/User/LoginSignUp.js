@@ -78,9 +78,9 @@ const LoginSignUp = () => {
     }
   };
 
-  const redirect = location.search ? location.search.split("=")[1] : "/account";
-//   const queryParams = new URLSearchParams(location.search);
-//   const redirect = queryParams.get("redirect") || "/account";
+  // const redirect = location.search ? location.search.split("=")[1] : "/account";
+  const queryParams = new URLSearchParams(location.search);
+  const redirect = queryParams.get("redirect") || "/account";
 
 
   useEffect(() => {
