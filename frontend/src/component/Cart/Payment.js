@@ -90,7 +90,7 @@ const Payment = () => {
 
       if (result.error) {
         payBtn.current.disabled = false;
-
+        // console.error("Stripe Payment Error:", result.error);
         toast.error(result.error.message);
       } else {
         if (result.paymentIntent.status === "succeeded") {
@@ -103,6 +103,7 @@ const Payment = () => {
 
           navigate("/success");
         } else {
+          //  console.error("Payment API Error:", error.response?.data || error.message);
           toast.error("There's some issue while processing payment ");
         }
       }
@@ -118,6 +119,7 @@ const Payment = () => {
       dispatch(clearErrors());
     }
   }, [dispatch, error]);
+
 
   return (
 

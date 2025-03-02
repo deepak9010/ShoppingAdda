@@ -49,6 +49,8 @@ const store = configureStore({
     cart: cartReducer,
     newOrder: newOrderReducer,
     myOrders: myOrdersReducer,
+    orderDetails: orderDetailsReducer,
+
   },
   preloadedState: initialState,
   devTools: process.env.NODE_ENV !== "production", // Enables Redux DevTools in development mode

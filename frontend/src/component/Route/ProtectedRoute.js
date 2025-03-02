@@ -38,8 +38,14 @@ import { Navigate, Outlet } from "react-router-dom";
 
 const ProtectedRoute = ({ isAdmin }) => {
   const { loading, isAuthenticated, user } = useSelector((state) => state.user);
-
-  if (loading) return null;
+ 
+  // if (loading) {
+  //   console.log("🔄 Waiting for authentication...");
+  //   return null;
+  // }
+  if (loading || isAuthenticated === undefined) {
+    return null; 
+  }
 
   if (!isAuthenticated) {
     return <Navigate to="/login" />;
@@ -48,6 +54,7 @@ const ProtectedRoute = ({ isAdmin }) => {
   if (isAdmin && user.role !== "admin") {
     return <Navigate to="/login" />;
   }
+
 
   return <Outlet />;
 };

@@ -27,7 +27,7 @@ import Payment from "./component/Cart/Payment";
 import PayCard from "./component/Cart/PayCard";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-// import OrderSuccess from "./component/Cart/OrderSuccess";
+import OrderSuccess from "./component/Cart/OrderSuccess";
 // import MyOrders from "./component/Order/MyOrders";
 // import OrderDetails from "./component/Order/OrderDetails";
 // import Dashboard from "./component/Admin/Dashboard.js";
@@ -106,6 +106,8 @@ function App() {
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
           {/* <Route exact path="/process/payment" element={<Payment />} /> */}
           <Route exact path="/process/payment" element={<PayCard />} />
+          <Route path="/success" element={<OrderSuccess />} />
+
         </Route>
   
 {/* 
@@ -123,8 +125,7 @@ function App() {
 
 
 
-        {/* <ProtectedRoute exact path="/success" component={OrderSuccess} /> */}
-
+    
         {/* <ProtectedRoute exact path="/orders" component={MyOrders} /> */}
 
         {/* <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} /> */}
