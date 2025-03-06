@@ -28,8 +28,8 @@ import PayCard from "./component/Cart/PayCard";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
-// import MyOrders from "./component/Order/MyOrders";
-// import OrderDetails from "./component/Order/OrderDetails";
+import MyOrders from "./component/Order/MyOrders";
+import OrderDetails from "./component/Order/OrderDetails";
 // import Dashboard from "./component/Admin/Dashboard.js";
 // import ProductList from "./component/Admin/ProductList.js";
 // import NewProduct from "./component/Admin/NewProduct";
@@ -103,11 +103,11 @@ function App() {
           <Route path="/password/update" element={<UpdatePassword />} />
           <Route exact path="/shipping" element={<Shipping />} />
           <Route exact path="/order/confirm" element={<ConfirmOrder />} />
-          <Route exact path="/order/confirm" element={<ConfirmOrder />} />
           {/* <Route exact path="/process/payment" element={<Payment />} /> */}
           <Route exact path="/process/payment" element={<PayCard />} />
           <Route path="/success" element={<OrderSuccess />} />
-
+          <Route exact path="/orders" element={<MyOrders />} />
+          <Route exact path="/order/:id" element={<OrderDetails />} />
         </Route>
   
 {/* 
@@ -124,13 +124,6 @@ function App() {
 
 
 
-
-    
-        {/* <ProtectedRoute exact path="/orders" component={MyOrders} /> */}
-
-        {/* <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} /> */}
-
-        {/* <ProtectedRoute exact path="/order/:id" component={OrderDetails} /> */}
 {/* 
         <ProtectedRoute
           isAdmin={true}

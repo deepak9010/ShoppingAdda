@@ -5,19 +5,19 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   clearErrors,
   getProductDetails,
-  // newReview,
+  newReview,
 } from "../../actions/productAction";
 import ReviewCard from "./ReviewCard.js";
 import Loader from "../layout/Loader/Loader";
 import MetaData from "../layout/MetaData";
 import { addItemsToCart } from "../../actions/cartAction";
-// import {
-//   Dialog,
-//   DialogActions,
-//   DialogContent,
-//   DialogTitle,
-//   Button,
-// } from "@material-ui/core";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  Button,
+} from "@mui/material";
 import Rating from "@mui/material/Rating";
 import { NEW_REVIEW_RESET } from "../../constants/productConstants";
 import { toast } from "react-toastify";

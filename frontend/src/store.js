@@ -50,6 +50,7 @@ const store = configureStore({
     newOrder: newOrderReducer,
     myOrders: myOrdersReducer,
     orderDetails: orderDetailsReducer,
+    newReview: newReviewReducer,
 
   },
   preloadedState: initialState,
