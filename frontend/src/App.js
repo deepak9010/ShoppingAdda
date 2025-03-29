@@ -37,7 +37,7 @@ import UpdateUser from "./component/Admin/UpdateUser";
 import ProductReviews from "./component/Admin/ProductReviews";
 import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
-// import NotFound from "./component/layout/Not Found/NotFound";
+import NotFound from "./component/layout/Not Found/NotFound";
 import WebFont from "webfontloader";
 
 import { ToastContainer } from "react-toastify";
@@ -105,7 +105,7 @@ function App() {
           <Route exact path="/order/:id" element={<OrderDetails />} />
         </Route>
 
-          <Route element={<ProtectedRoute isAdmin={true} />}>
+        <Route element={<ProtectedRoute isAdmin={true} />}>
           <Route isAdmin={true} exact path="/admin/dashboard" element={<Dashboard />} /> 
           <Route exact path="/admin/products" isAdmin={true} element={<ProductList />} /> 
           <Route exact path="/admin/product" isAdmin={true} element={<NewProduct />} /> 
@@ -116,32 +116,14 @@ function App() {
           <Route exact path="/admin/user/:id" isAdmin={true} element={<UpdateUser />} /> 
           <Route exact path="/admin/reviews" isAdmin={true} element={<ProductReviews />} /> 
         </Route>
-  
-{/* 
-         <Route
-           path="/process/payment"
-           element={
-             <Elements stripe={stripePromise}>
-               <ProtectedRoute>
-                 <Payment />
-               </ProtectedRoute>
-             </Elements>
-           }
-         /> */}
-
-
-
-
- 
-       
-
    
 
-        {/* <Route
-          component={
-            window.location.pathname === "/process/payment" ? null : NotFound
+       {/* <Route
+          element={
+            window.location.pathname === "/process/payment" ? null : <NotFound />
           }
-        /> */}
+        />  */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
 
