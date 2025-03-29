@@ -35,14 +35,14 @@ const About = () => {
           <div className="aboutSectionContainer2">
             <Typography component="h2">Our Brands</Typography>
             <a
-            //   href="https://www.youtube.com/channel/UCO7afj9AUo0zV69pqEYhcjw"
+              href="https://www.youtube.com/"
               target="blank"
             >
               <YouTube className="youtubeSvgIcon" />
             </a>
 
             <a
-            //  href="https://instagram.com/meabhisingh" 
+             href="https://instagram.com/" 
              target="blank"
              >
               <Instagram className="instagramSvgIcon" />

@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "../layout/MetaData";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Typography, Button } from "@mui/material";
 import SideBar from "./Sidebar";
 import {
@@ -18,7 +18,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 
 const ProcessOrder = () => {
-  const navigate = useNavigate();
   const { id } = useParams();
   const { order, error, loading } = useSelector((state) => state.orderDetails);
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
