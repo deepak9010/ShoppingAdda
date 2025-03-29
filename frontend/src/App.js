@@ -30,17 +30,17 @@ import { loadStripe } from "@stripe/stripe-js";
 import OrderSuccess from "./component/Cart/OrderSuccess";
 import MyOrders from "./component/Order/MyOrders";
 import OrderDetails from "./component/Order/OrderDetails";
-// import Dashboard from "./component/Admin/Dashboard.js";
-// import ProductList from "./component/Admin/ProductList.js";
-// import NewProduct from "./component/Admin/NewProduct";
-// import UpdateProduct from "./component/Admin/UpdateProduct";
-// import OrderList from "./component/Admin/OrderList";
-// import ProcessOrder from "./component/Admin/ProcessOrder";
-// import UsersList from "./component/Admin/UsersList";
-// import UpdateUser from "./component/Admin/UpdateUser";
-// import ProductReviews from "./component/Admin/ProductReviews";
-// import Contact from "./component/layout/Contact/Contact";
-// import About from "./component/layout/About/About";
+import Dashboard from "./component/Admin/Dashboard.js";
+import ProductList from "./component/Admin/ProductList.js";
+import NewProduct from "./component/Admin/NewProduct";
+import UpdateProduct from "./component/Admin/UpdateProduct";
+import OrderList from "./component/Admin/OrderList";
+import ProcessOrder from "./component/Admin/ProcessOrder";
+import UsersList from "./component/Admin/UsersList";
+import UpdateUser from "./component/Admin/UpdateUser";
+import ProductReviews from "./component/Admin/ProductReviews";
+import Contact from "./component/layout/Contact/Contact";
+import About from "./component/layout/About/About";
 // import NotFound from "./component/layout/Not Found/NotFound";
 import WebFont from "webfontloader";
 
@@ -88,10 +88,9 @@ function App() {
          <Route exact path="/products" element={<Products />} />
         <Route path="/products/:keyword" element={<Products />} />
         <Route exact path="/search" element={<Search />} />
+        <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/about" element={<About />} />
 
-         {/* <Route exact path="/contact" component={Contact} /> */}
-
-        {/* <Route exact path="/about" component={About} /> */}
         <Route exact path="/password/forgot" element={<ForgotPassword />} />
         <Route exact path="/password/reset/:token" element={<ResetPassword />} />
         <Route exact path="/login" element={<LoginSignUp />} />
@@ -109,6 +108,18 @@ function App() {
           <Route exact path="/orders" element={<MyOrders />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
         </Route>
+
+          <Route element={<ProtectedRoute isAdmin={true} />}>
+          <Route isAdmin={true} exact path="/admin/dashboard" element={<Dashboard />} /> 
+          <Route exact path="/admin/products" isAdmin={true} element={<ProductList />} /> 
+          <Route exact path="/admin/product" isAdmin={true} element={<NewProduct />} /> 
+          <Route exact path="/admin/product/:id" isAdmin={true} element={<UpdateProduct />} /> 
+          <Route exact path="/admin/orders" isAdmin={true} element={<OrderList />} /> 
+          <Route exact path="/admin/order/:id" isAdmin={true} element={<ProcessOrder />} /> 
+          <Route exact path="/admin/users" isAdmin={true} element={<UsersList />} /> 
+          <Route exact path="/admin/user/:id" isAdmin={true} element={<UpdateUser />} /> 
+          <Route exact path="/admin/reviews" isAdmin={true} element={<ProductReviews />} /> 
+        </Route>
   
 {/* 
          <Route
@@ -124,65 +135,11 @@ function App() {
 
 
 
-{/* 
-        <ProtectedRoute
-          isAdmin={true}
-          exact
-          path="/admin/dashboard"
-          component={Dashboard}
-        /> */}
-        {/* <ProtectedRoute
-          exact
-          path="/admin/products"
-          isAdmin={true}
-          component={ProductList}
-        /> */}
-        {/* <ProtectedRoute
-          exact
-          path="/admin/product"
-          isAdmin={true}
-          component={NewProduct}
-        /> */}
 
-        {/* <ProtectedRoute
-          exact
-          path="/admin/product/:id"
-          isAdmin={true}
-          component={UpdateProduct}
-        /> */}
-        {/* <ProtectedRoute
-          exact
-          path="/admin/orders"
-          isAdmin={true}
-          component={OrderList}
-        /> */}
+ 
+       
 
-        {/* <ProtectedRoute
-          exact
-          path="/admin/order/:id"
-          isAdmin={true}
-          component={ProcessOrder}
-        /> */}
-        {/* <ProtectedRoute
-          exact
-          path="/admin/users"
-          isAdmin={true}
-          component={UsersList}
-        /> */}
-
-        {/* <ProtectedRoute
-          exact
-          path="/admin/user/:id"
-          isAdmin={true}
-          component={UpdateUser}
-        /> */}
-
-        {/* <ProtectedRoute
-          exact
-          path="/admin/reviews"
-          isAdmin={true}
-          component={ProductReviews}
-        /> */}
+   
 
         {/* <Route
           component={
