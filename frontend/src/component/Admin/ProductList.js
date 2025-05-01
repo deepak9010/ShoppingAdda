@@ -59,8 +59,8 @@ const ProductList = () => {
     {
       field: "name",
       headerName: "Name",
-      minWidth: 350,
-      flex: 1,
+      minWidth: 150,
+      flex: 0.5,
     },
     {
       field: "stock",
@@ -74,13 +74,13 @@ const ProductList = () => {
       field: "price",
       headerName: "Price",
       type: "number",
-      minWidth: 270,
+      minWidth: 200,
       flex: 0.5,
     },
 
     {
       field: "actions",
-      flex: 0.3,
+      flex: 0.5,
       headerName: "Actions",
       minWidth: 150,
       type: "number",
