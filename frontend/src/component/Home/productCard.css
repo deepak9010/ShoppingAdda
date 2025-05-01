@@ -1,0 +1,6 @@
+.productCard > img {
+  width: 16vmax;
+  height: 16vmax;
+  object-fit: cover; 
+  border-radius: 4px;
+}
