@@ -54,33 +54,33 @@ const ProductList = () => {
   }, [dispatch, error, deleteError, navigate, isDeleted]);
 
   const columns = [
-    { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
+    { field: "id", headerName: "Product ID", minWidth: 220, flex: 1 },
 
     {
       field: "name",
       headerName: "Name",
-      minWidth: 150,
-      flex: 0.5,
+      minWidth: 180,
+      flex: 1,
     },
     {
       field: "stock",
       headerName: "Stock",
       type: "number",
-      minWidth: 150,
-      flex: 0.3,
+      minWidth: 100,
+      flex: 0.5,
     },
 
     {
       field: "price",
       headerName: "Price",
       type: "number",
-      minWidth: 200,
-      flex: 0.5,
+      minWidth: 120,
+      flex: 0.7,
     },
 
     {
       field: "actions",
-      flex: 0.5,
+      flex: 0.7,
       headerName: "Actions",
       minWidth: 150,
       type: "number",
