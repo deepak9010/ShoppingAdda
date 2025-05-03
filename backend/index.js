@@ -1,10 +1,16 @@
 const app = require("./app");
-
+const cors = require("cors");
 const dotenv = require("dotenv");
 const cloudinary = require("cloudinary");
 const connectDatabase = require("./config/database")
 
 
+
+app.use(cors({
+   origin : "*",
+   methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+   credentials: true,
+}));
 
 
 // Handling Uncaught Exception
