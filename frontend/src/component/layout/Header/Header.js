@@ -34,7 +34,7 @@ const Header = () => {
     <CNavbar expand="lg" className="bg-body-tertiary custom-navbar">
       <CContainer fluid>
         <CNavbarBrand>
-          <Link to="/" className="text-decoration-none text-dark" onClick={handleItemClick}>Navbar</Link>
+          <Link to="/" className="text-decoration-none text-dark" onClick={handleItemClick}>ShoppingAdda</Link>
         </CNavbarBrand>
         {/* Toggler */}
         <CNavbarToggler onClick={() => setVisible(!visible)} />
