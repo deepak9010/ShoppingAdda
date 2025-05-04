@@ -22,8 +22,14 @@
     align-items: flex-start;
   }
   
+   .customCarousel{
+    width: 80%;
+   }
   .CarouselImage {
-    width: 20vmax;
+    /* width: 20vmax; */
+    height: 280px;
+    object-fit: cover;
+    /* border-radius: 10px; */
   }
   
   .detailsBlock-1 > h2 {
