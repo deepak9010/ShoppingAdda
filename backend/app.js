@@ -12,8 +12,8 @@ const errorMiddleware = require("./middleware/error");
 dotenv.config({ path: "./config/config.env" });
 // ✅ CORS setup goes here — before all routes
 app.use(cors({
-  origin: "http://localhost:3000",
-  // origin: ["http://localhost:3000", "https://your-frontend-domain.com"],
+  // origin: "http://localhost:3000",
+  origin: ["http://localhost:3000", "https://ecommerce-frontend-iota-azure.vercel.app"],
   // origin : "*",
   methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
   credentials: true,
