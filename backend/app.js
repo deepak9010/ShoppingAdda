@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
@@ -9,7 +10,14 @@ const errorMiddleware = require("./middleware/error");
 
 // config
 dotenv.config({ path: "./config/config.env" });
-
+// ✅ CORS setup goes here — before all routes
+app.use(cors({
+  origin: "http://localhost:3000",
+  // origin: ["http://localhost:3000", "https://your-frontend-domain.com"],
+  // origin : "*",
+  methods: "GET, POST, PUT, DELETE, PATCH, HEAD",
+  credentials: true,
+}));
 
 app.use(express.json());
 app.use(cookieParser());
