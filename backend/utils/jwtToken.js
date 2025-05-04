@@ -10,7 +10,8 @@ const sendToken = (user, statusCode, res) => {
       ),
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
-      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax"
+      sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",
+       path: "/"
     };
   
     res.status(statusCode).cookie("token", token, options).json({
