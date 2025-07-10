@@ -1,7 +1,7 @@
-/* Modern Banner Styles */
+/* Modern Banner Styles - Dark Theme */
 .banner {
   height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,7 +9,6 @@
   overflow: hidden;
   color: white;
 }
-
 .banner::before {
   content: '';
   position: absolute;
@@ -20,14 +19,12 @@
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ffffff;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:0"/></radialGradient></defs><circle cx="200" cy="200" r="150" fill="url(%23a)"/><circle cx="800" cy="300" r="200" fill="url(%23a)"/><circle cx="400" cy="700" r="180" fill="url(%23a)"/></svg>');
   animation: float 20s ease-in-out infinite;
 }
-
 .banner-content {
   text-align: center;
   z-index: 2;
   max-width: 800px;
   padding: 0 2rem;
 }
-
 .banner-subtitle {
   font-size: 1.2rem;
   opacity: 0.9;
@@ -35,7 +32,6 @@
   animation: slideInUp 1s ease-out 0.2s both;
   font-family: "Lucida Sans", sans-serif;
 }
-
 .banner-title {
   font-size: 4rem;
   font-weight: 700;
@@ -44,7 +40,6 @@
   animation: slideInUp 1s ease-out 0.4s both;
   font-family: "Roboto", sans-serif;
 }
-
 .banner-description {
   font-size: 1.3rem;
   opacity: 0.9;
@@ -52,7 +47,6 @@
   animation: slideInUp 1s ease-out 0.6s both;
   font-family: "Roboto", sans-serif;
 }
-
 .banner-cta {
   display: flex;
   gap: 1.5rem;
@@ -60,7 +54,6 @@
   flex-wrap: wrap;
   animation: slideInUp 1s ease-out 0.8s both;
 }
-
 .cta-button {
   padding: 1rem 2.5rem;
   border: none;
@@ -75,47 +68,40 @@
   gap: 0.5rem;
   font-family: "Roboto", sans-serif;
 }
-
 .cta-primary {
-  background: white;
-  color: #667eea;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #e0e0e0;
+  color: #1a1a1a;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
-
 .cta-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  background: #f0f0f0;
 }
-
 .cta-secondary {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   /* backdrop-filter: blur(10px); */
 }
-
 .cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
   transform: translateY(-3px);
 }
-
 .cta-icon {
   font-size: 1.2rem;
 }
-
 .cta-mouse {
   font-size: 1.2rem;
 }
-
 /* Floating Elements */
 .floating-element {
   position: absolute;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
 }
-
 .floating-element:nth-child(1) {
   width: 80px;
   height: 80px;
@@ -123,7 +109,6 @@
   left: 10%;
   animation-delay: 0s;
 }
-
 .floating-element:nth-child(2) {
   width: 120px;
   height: 120px;
@@ -131,7 +116,6 @@
   right: 10%;
   animation-delay: 2s;
 }
-
 .floating-element:nth-child(3) {
   width: 60px;
   height: 60px;
@@ -139,7 +123,6 @@
   left: 15%;
   animation-delay: 4s;
 }
-
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
@@ -153,17 +136,14 @@
   opacity: 0.8;
   animation: bounce 2s infinite;
 }
-
 .scroll-indicator span {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
-
 .scroll-arrow {
   font-size: 1.5rem;
   animation: bounce 2s infinite;
 }
-
 /* Animations */
 @keyframes slideInUp {
   from {
@@ -175,7 +155,6 @@
     transform: translateY(0);
   }
 }
-
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -184,7 +163,6 @@
     transform: translateY(-20px);
   }
 }
-
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateX(-50%) translateY(0);
@@ -196,32 +174,27 @@
     transform: translateX(-50%) translateY(-5px);
   }
 }
-
 /* Responsive Design for Banner */
 @media (max-width: 768px) {
   .banner-title {
     font-size: 2.5rem;
   }
-
   .banner-description {
     font-size: 1.1rem;
   }
-
   .cta-button {
     padding: 0.8rem 2rem;
     font-size: 1rem;
   }
 }
-
-
   .homeHeading {
     text-align: center;
     font: 700 2.5rem "Roboto", sans-serif;
     width: fit-content;
     padding: 1.5rem 3rem;
     margin: 3rem auto;
-    color: #2c3e50;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #333333 0%, #1a1a1a 50%, #404040 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -229,13 +202,12 @@
     animation: shimmer 3s ease-in-out infinite;
     border: none;
     border-bottom: none;
+    overflow: hidden;
   }
-
   @keyframes shimmer {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
   }
-
   .homeHeading::before {
     content: '';
     position: absolute;
@@ -243,17 +215,15 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+    background: linear-gradient(45deg, transparent, rgba(64, 64, 64, 0.3), transparent);
     transform: translateX(-100%);
     animation: slideShine 3s ease-in-out infinite;
     z-index: -1;
   }
-
   @keyframes slideShine {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
   }
-
   .homeHeading::after {
     content: '';
     position: absolute;
@@ -262,16 +232,14 @@
     transform: translateX(-50%);
     width: 80px;
     height: 6px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    background: linear-gradient(90deg, #333333, #1a1a1a, #404040);
     border-radius: 3px;
     animation: pulse 2s ease-in-out infinite;
   }
-
   @keyframes pulse {
     0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
     50% { transform: translateX(-50%) scale(1.1); opacity: 0.8; }
   }
-
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -280,7 +248,7 @@
     width: 90vw;
     max-width: 1400px;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(225, 225, 225, 0.8);
     /* backdrop-filter: blur(10px); */
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -296,8 +264,8 @@
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(circle at 20% 20%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+      radial-gradient(circle at 20% 20%, rgba(64, 64, 64, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(32, 32, 32, 0.2) 0%, transparent 50%);
     pointer-events: none;
     z-index: -1;
   }
@@ -309,14 +277,13 @@
     display: flex;
     flex-direction: column;
     text-decoration: none;
-    color: #2c3e50;
+    color: #e0e0e0;
     padding: 1.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(255, 255, 255, 0.95);
-    /* backdrop-filter: blur(20px); */
+    background: rgba(26, 26, 26, 0.9);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
     justify-self: center;
@@ -330,7 +297,7 @@
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    background: linear-gradient(90deg, #333333, #1a1a1a, #404040);
     transform: scaleX(0);
     transition: transform 0.3s ease;
     z-index: 1;
@@ -363,7 +330,7 @@
   
   .productCardSpan {
     font: 500 0.9rem "Roboto", sans-serif;
-    color: #7f8c8d;
+    color: #a0a0a0;
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -372,7 +339,7 @@
   .productCard > p {
     font: 600 1.1rem "Roboto", sans-serif;
     margin: 0.75rem 0;
-    color: #2c3e50;
+    color: #e0e0e0;
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -382,15 +349,15 @@
   
   .productCard > span {
     font: 700 1.2rem "Roboto", sans-serif;
-    color: #e74c3c;
+    color: #ff6b6b;
     margin: 0.5rem 0;
     display: block;
   }
   
   .productCard:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 20px 50px rgba(131, 129, 129, 0.4);
+    background: rgba(223, 216, 216, 0.95);
   }
   
   /* Enhanced animations for staggered loading */
@@ -422,8 +389,8 @@
   }
   
   .productCard .rating-stars svg {
-    color: #f39c12;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    color: #ffc107;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
   }
   
   /* Price styling enhancements */
@@ -433,22 +400,22 @@
     gap: 0.75rem;
     margin-top: auto;
     padding-top: 1rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .productCard .current-price {
     font: 700 1.3rem "Roboto", sans-serif;
-    color: #e74c3c;
+    color: #ff6b6b;
   }
   
   .productCard .original-price {
     font: 500 1rem "Roboto", sans-serif;
-    color: #7f8c8d;
+    color: #a0a0a0;
     text-decoration: line-through;
   }
   
   .productCard .discount-badge {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, #28a745, #20c997);
     color: white;
     padding: 0.25rem 0.5rem;
     border-radius: 6px;
@@ -471,7 +438,7 @@
     }
   }
   
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .homeHeading {
       font-size: 2rem;
       padding: 1rem 2rem;
@@ -554,7 +521,7 @@
   
   /* Loading state for product cards */
   .productCard.loading {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background: linear-gradient(90deg, #2a2a2a 25%, #1a1a1a 50%, #2a2a2a 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
   }
@@ -572,7 +539,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    background: linear-gradient(135deg, rgba(64, 64, 64, 0.1), rgba(32, 32, 32, 0.1));
     opacity: 0;
     transition: opacity 0.3s ease;
     pointer-events: none;
@@ -584,7 +551,7 @@
   
   /* Enhanced focus states for accessibility */
   .productCard:focus {
-    outline: 3px solid rgba(102, 126, 234, 0.5);
+    outline: 3px solid rgba(128, 128, 128, 0.5);
     outline-offset: 2px;
   }
   
@@ -593,7 +560,7 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(102, 126, 234, 0.9);
+    background: rgba(64, 64, 64, 0.9);
     color: white;
     padding: 0.25rem 0.5rem;
     border-radius: 12px;
@@ -603,7 +570,7 @@
   
   .productCard .product-category {
     font: 500 0.8rem "Roboto", sans-serif;
-    color: #667eea;
+    color: #a0a0a0;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 0.5rem;
@@ -620,15 +587,14 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: rgba(240, 240, 240, 0.5);
+    background: rgba(26, 26, 26, 0.5);
   }
   
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #333333, #1a1a1a);
     border-radius: 4px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(135deg, #5a6fd8, #6b63a8);
+    background: linear-gradient(135deg, #404040, #2a2a2a);
   }
-  
