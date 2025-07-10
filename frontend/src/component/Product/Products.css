@@ -2,6 +2,7 @@
 
 /* Main container - Keep original layout structure */
 .mainProductContainer{
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
   padding: 3rem 0 4rem 0;
 }
 .products-container {
