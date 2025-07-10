@@ -11,30 +11,69 @@
 
 /* Products heading */
 .productsHeading {
-  margin: 2rem auto 3rem;
-  width: fit-content;
-  padding: 1rem 2rem;
-  color: #2c3e50;
-  font: 600 2.5rem "Roboto", sans-serif;
   text-align: center;
-  position: relative;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font: 700 2.5rem "Roboto", sans-serif;
+  width: fit-content;
+  padding: 1.5rem 3rem;
+  margin: 3rem auto;
+  color: #2c3e50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  position: relative;
+  animation: shimmer 3s ease-in-out infinite;
+  border: none;
+  border-bottom: none;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.productsHeading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: slideShine 3s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes slideShine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 .productsHeading::after {
   content: '';
   position: absolute;
-  bottom: -10px;
+  bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  border-radius: 2px;
+  width: 80px;
+  height: 6px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  border-radius: 3px;
+  animation: pulse 2s ease-in-out infinite;
 }
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: translateX(-50%) scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
 
 /* Sidebar filter box - Left positioned like original */
 .filterBox {
@@ -324,7 +363,14 @@
   
   .productsHeading {
     font-size: 2rem;
-    margin: 1rem auto 2rem;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+  }
+  
+  .productsHeading::after {
+    width: 60px;
+    height: 4px;
+    bottom: -10px;
   }
   
   .filterBox {
@@ -382,6 +428,14 @@
   
   .productsHeading {
     font-size: 1.5rem;
+    margin: 1.5rem auto;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .productsHeading::after {
+    width: 50px;
+    height: 3px;
+    bottom: -8px;
   }
   
   .pagination {
