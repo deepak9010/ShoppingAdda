@@ -22,6 +22,22 @@ const ProductCard = ({ product }) => {
           readOnly 
           precision={0.5} 
           size="small" 
+          sx={{
+            '& .MuiRating-icon': {
+              color: '#ffc107',
+            },
+            '& .MuiRating-iconFilled': {
+              color: '#ffc107', 
+            },
+            '& .MuiRating-iconHover': {
+              color: '#ffc107', 
+            },
+            '& .MuiRating-iconEmpty': {
+              color: '#e0e0e0', 
+              stroke: '#e0e0e0', 
+              strokeWidth: 1.5, 
+            }
+          }}
         />{" "}
         <span className="productCardSpan">
           {" "}
