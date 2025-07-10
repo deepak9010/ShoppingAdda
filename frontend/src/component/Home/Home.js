@@ -70,14 +70,15 @@ const Home = () => {
                 </div>
               </div>
 
+          <div className="productContainer">
+            <h2 className="homeHeading">Featured Products</h2>
 
-          <h2 className="homeHeading">Featured Products</h2>
-
-          <div className="container" id="container">
-            {products &&
-              products.map((product) => (
-                <ProductCard key={product._id} product={product} />
-              ))}
+            <div className="container" id="container">
+              {products &&
+                products.map((product) => (
+                  <ProductCard key={product._id} product={product} />
+                ))}
+            </div>
           </div>
         </Fragment>
       )}

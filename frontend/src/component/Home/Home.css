@@ -187,12 +187,19 @@
     font-size: 1rem;
   }
 }
+
+  .productContainer{
+    /* background: linear-gradient(135deg, #533f3f 0%, #7d7777 50%, #554141 100%); */
+    padding: 3rem 0 4rem 0;
+  }
+  
   .homeHeading {
     text-align: center;
     font: 700 2.5rem "Roboto", sans-serif;
     width: fit-content;
     padding: 1.5rem 3rem;
-    margin: 3rem auto;
+    /* margin: 3rem auto; */
+    margin: 0 auto 2rem auto;
     color: #e0e0e0;
     background: linear-gradient(135deg, #333333 0%, #1a1a1a 50%, #404040 100%);
     -webkit-background-clip: text;
@@ -244,7 +251,8 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
-    margin: 3rem auto;
+    /* margin: 3rem auto; */
+    margin: 0 auto 2rem auto;
     width: 90vw;
     max-width: 1400px;
     padding: 2rem;
