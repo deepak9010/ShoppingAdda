@@ -40,18 +40,36 @@ const Home = () => {
         <Loader />
       ) : (
         <Fragment>
-          <MetaData title="ShoppingAdda" />
+               <MetaData title="ShoppingAdda" />
 
-          <div className="banner">
-            <p>Welcome to ShoppingAdda</p>
-            <h1>FIND AMAZING PRODUCTS BELOW</h1>
+              <div className="banner">
+                <div className="floating-element"></div>
+                <div className="floating-element"></div>
+                <div className="floating-element"></div>
+                
+                <div className="banner-content">
+                  <p className="banner-subtitle">Welcome to ShoppingAdda</p>
+                  <h1 className="banner-title">FIND AMAZING PRODUCTS BELOW</h1>
+                  <p className="banner-description">Discover thousands of premium products with unbeatable prices and quality you can trust</p>
+                  
+                  <div className="banner-cta">
+                    <a href="#container" className="cta-button cta-primary">
+                      <span>Shop Now</span>
+                      <i className="cta-icon">🛍️</i>
+                    </a>
+                    <a href="#container" className="cta-button cta-secondary">
+                      <span>Scroll</span>
+                      <CgMouse className="cta-mouse" />
+                    </a>
+                  </div>
+                </div>
 
-            <a href="#container">
-              <button>
-                Scroll <CgMouse />
-              </button>
-            </a>
-          </div>
+                <div className="scroll-indicator">
+                  <span>Scroll to explore</span>
+                  <div className="scroll-arrow">↓</div>
+                </div>
+              </div>
+
 
           <h2 className="homeHeading">Featured Products</h2>
 

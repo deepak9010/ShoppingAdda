@@ -1,6 +1,343 @@
+/* Product Card Styles */
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  max-width: 320px;
+  min-width: 280px;
+  margin: 1rem;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+.productCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image container */
 .productCard > img {
-  width: 16vmax;
-  height: 16vmax;
-  object-fit: cover; 
-  border-radius: 4px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  background: #f8f9fa;
+}
+
+.productCard:hover > img {
+  transform: scale(1.05);
+}
+
+/* Product info container */
+.productCard-info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+/* Product name */
+.productCard > p,
+.productCard-name {
+  font: 600 1.1rem "Roboto", sans-serif;
+  color: #2c3e50;
+  margin: 0;
+  padding: 0 1.5rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2.8rem;
+  margin: 0.6rem 0;
+}
+
+/* Rating and reviews container */
+.productCard > div,
+.productCard-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  margin: 0.5rem 0;
+}
+
+/* Rating stars */
+.productCard .MuiRating-root {
+  color: #ffc107 !important;
+}
+
+.productCard .MuiRating-iconEmpty {
+  color: #e0e0e0 !important;
+}
+
+/* Reviews text */
+.productCardSpan {
+  font: 400 0.85rem "Roboto", sans-serif;
+  color: #6c757d;
+  white-space: nowrap;
+}
+
+/* Price */
+.productCard > span:last-child,
+.productCard-price {
+  font: 700 1.3rem "Roboto", sans-serif;
+  color: #e74c3c;
+  padding: 0 1.5rem 1.5rem;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Currency symbol styling */
+.productCard-price::before {
+  content: "₹";
+  font-size: 1.1rem;
+  color: #34495e;
+}
+
+/* Sale/Discount badge */
+.productCard-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font: 600 0.7rem "Roboto", sans-serif;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Out of stock overlay */
+.productCard-outOfStock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font: 600 1.2rem "Roboto", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 3;
+}
+
+/* Wishlist button */
+.productCard-wishlist {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.productCard-wishlist:hover {
+  background: #e74c3c;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Quick view button */
+.productCard-quickView {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font: 500 0.8rem "Roboto", sans-serif;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.productCard:hover .productCard-quickView {
+  opacity: 1;
+}
+
+/* Loading state */
+.productCard-loading {
+  background: #f8f9fa;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .productCard {
+    max-width: 100%;
+    min-width: 250px;
+    margin: 0.5rem;
+  }
+  
+  .productCard > img {
+    height: 220px;
+  }
+  
+  .productCard > p,
+  .productCard-name {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  
+  .productCard > div,
+  .productCard-rating {
+    padding: 0 1rem;
+  }
+  
+  .productCard > span:last-child,
+  .productCard-price {
+    font-size: 1.2rem;
+    padding: 0 1rem 1rem;
+  }
+  
+  .productCard-info {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .productCard {
+    min-width: 200px;
+  }
+  
+  .productCard > img {
+    height: 180px;
+  }
+  
+  .productCard > p,
+  .productCard-name {
+    font-size: 0.9rem;
+  }
+  
+  .productCardSpan {
+    font-size: 0.75rem;
+  }
+  
+  .productCard > span:last-child,
+  .productCard-price {
+    font-size: 1.1rem;
+  }
+}
+
+/* Grid layout compatibility */
+.products .productCard {
+  margin: 0;
+  width: 100%;
+}
+
+/* Hover effects for better UX */
+.productCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.productCard:hover::before {
+  opacity: 1;
+}
+
+/* Ensure content stays above overlay */
+.productCard > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Alternative card style for featured products */
+.productCard.featured {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.productCard.featured > p {
+  color: white;
+}
+
+.productCard.featured .productCardSpan {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.productCard.featured > span:last-child {
+  color: #fff;
+}
+
+/* Add to cart button on hover */
+.productCard-addToCart {
+  position: absolute;
+  bottom: -50px;
+  left: 1rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font: 600 0.9rem "Roboto", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.productCard:hover .productCard-addToCart {
+  bottom: 1rem;
+}
+
+.productCard-addToCart:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  transform: translateY(-2px);
 }

@@ -1,14 +1,209 @@
 .custom-navbar {
-    z-index: 1050; 
-  }
-  .speedDial {
-    position: fixed;
-    right: 2vmax;
-    top: 5vmax;
+  z-index: 1050;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.custom-navbar:hover {
+  background: rgba(255, 255, 255, 0.98) !important;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Brand/Logo Styling */
+.navbar-brand {
+  font-weight: 700 !important;
+  font-size: 1.8rem !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Navigation Links */
+.navbar-nav .nav-link {
+  color: #4a5568 !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  padding: 0.75rem 1.2rem !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  position: relative;
+  text-decoration: none !important;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #667eea !important;
+  background: rgba(102, 126, 234, 0.1) !important;
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::after {
+  width: 80%;
+}
+
+/* Icon Buttons */
+.btn-icon {
+  background: rgba(102, 126, 234, 0.1) !important;
+  border: 2px solid rgba(102, 126, 234, 0.2) !important;
+  border-radius: 12px !important;
+  padding: 0.6rem !important;
+  margin: 0 0.3rem !important;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 44px !important;
+  height: 44px !important;
+}
+
+.btn-icon:hover {
+  background: rgba(102, 126, 234, 0.2) !important;
+  border-color: rgba(102, 126, 234, 0.4) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+}
+
+.btn-icon svg {
+  color: #667eea !important;
+  width: 20px !important;
+  height: 20px !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-icon:hover svg {
+  color: #5a67d8 !important;
+  transform: scale(1.1) !important;
+}
+
+/* Search Bar Specific Styling */
+.search-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 0.6rem 1.2rem !important;
+  color: white !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.search-btn:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+  filter: brightness(1.1) !important;
+}
+
+/* Mobile Toggler */
+.navbar-toggler {
+  border: 2px solid rgba(102, 126, 234, 0.3) !important;
+  border-radius: 8px !important;
+  padding: 0.5rem 0.75rem !important;
+  transition: all 0.3s ease !important;
+}
+
+.navbar-toggler:hover {
+  border-color: rgba(102, 126, 234, 0.5) !important;
+  background: rgba(102, 126, 234, 0.1) !important;
+  transform: scale(1.05) !important;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Mobile Menu Styling */
+.navbar-collapse {
+  background: rgba(255, 255, 255, 0.98) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Container Spacing */
+.container-fluid {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+  .container-fluid {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
   
-  .speedDialIcon {
-    width: 56px;
-    height: 56px;
-    border-radius: 100%;
+  .navbar-brand {
+    font-size: 1.5rem !important;
   }
+  
+  .navbar-nav .nav-link {
+    text-align: center !important;
+    margin: 0.2rem 0 !important;
+  }
+  
+  .btn-icon {
+    margin: 0.5rem 0.2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-brand {
+    font-size: 1.3rem !important;
+  }
+  
+  .btn-icon {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0.5rem !important;
+  }
+  
+  .btn-icon svg {
+    width: 18px !important;
+    height: 18px !important;
+  }
+}
+
+/* Speed Dial (keeping original) */
+.speedDial {
+  position: fixed;
+  right: 2vmax;
+  top: 5vmax;
+}
+
+.speedDialIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+
+/* Additional Enhancements */
+.navbar-nav {
+  align-items: center !important;
+}
+
+/* Smooth animations */
+* {
+  box-sizing: border-box;
+}
