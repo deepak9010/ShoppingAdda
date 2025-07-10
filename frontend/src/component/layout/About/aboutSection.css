@@ -1,124 +1,258 @@
 .aboutSection {
-    height: 100vh;
-    width: 100vw;
-    max-width: 100%;
-    background-color: white;
-    display: grid;
-    grid-template-columns: 4fr 4fr;
-    position: fixed;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.MuiTypography-root{
+  background-color: transparent !important;
+}
+.aboutSectionContainer {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1200px;
+  padding: 3rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-  
-  .aboutSectionGradient {
-    background-image: linear-gradient(
-      to bottom right,
-      rgb(78, 81, 255),
-      rgb(74, 137, 189)
-    );
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.aboutTitle {
+  color: #ffffff !important;
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+  text-align: center;
+  margin-bottom: 3rem !important;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.founderSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.founderAvatar {
+  width: 120px !important;
+  height: 120px !important;
+  margin-bottom: 1rem !important;
+  border: 3px solid #4ecdc4;
+  box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.founderAvatar:hover {
+  transform: scale(1.05);
+}
+
+.founderName {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+.founderTitle {
+  color: #4ecdc4 !important;
+  font-size: 1rem !important;
+  margin-bottom: 1.5rem !important;
+  opacity: 0.9;
+}
+
+.instagramButton {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24) !important;
+  color: white !important;
+  border-radius: 25px !important;
+  padding: 0.75rem 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  text-transform: none !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3) !important;
+}
+
+.instagramButton:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4) !important;
+}
+
+.founderDescription {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  max-width: 280px;
+}
+
+.featuresSection {
+  padding: 1rem;
+}
+
+.featuresTitle {
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 2rem !important;
+  text-align: center;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.featureIcon {
+  font-size: 2.5rem !important;
+  color: #4ecdc4 !important;
+  margin-bottom: 1rem !important;
+  transition: transform 0.3s ease;
+}
+
+.featureCard:hover .featureIcon {
+  transform: scale(1.1);
+}
+
+.featureCard h3 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.featureCard p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .aboutSection {
+    padding: 1rem;
   }
   
   .aboutSectionContainer {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    background-color: rgb(255, 255, 255);
-    width: 80vw;
-    height: 80vh;
-    transform: translateX(-50%) translateY(-50%);
-    box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.192);
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding: 2rem;
   }
   
-  .aboutSectionContainer > h1 {
-    font: 400 3vmax "Roboto";
-    color: tomato;
-    margin: 2vmax;
+  .aboutTitle {
+    font-size: 2.5rem !important;
+    margin-bottom: 2rem !important;
   }
   
-  .aboutSectionContainer > div {
-    display: flex;
-    width: 100%;
+  .aboutContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
-  .aboutSectionContainer > div > div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2vmax;
-    box-sizing: border-box;
+  .founderSection {
+    padding: 1.5rem;
   }
   
-  .aboutSectionContainer > div > div > p {
-    color: rgba(0, 0, 0, 0.623);
-    font: 100 1vmax "Roboto";
+  .founderAvatar {
+    width: 100px !important;
+    height: 100px !important;
   }
   
-  .aboutSectionContainer > div > div > button {
-    margin: 1vmax 0;
+  .featuresTitle {
+    font-size: 1.8rem !important;
   }
   
-  .aboutSectionContainer > div > div > span {
-    font: 100 1vmax "Roboto";
-    color: rgba(0, 0, 0, 0.616);
-    text-align: center;
-    width: 80%;
+  .featureGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
   
-  .aboutSectionContainer2 {
-    border-left: 1px solid rgba(0, 0, 0, 0.116);
+  .featureCard {
+    padding: 1.2rem;
   }
   
-  .aboutSectionContainer2 > h2 {
-    color: rgba(0, 0, 0, 0.623);
-    font: 100 2vmax "Roboto";
-    margin: 2vmax;
+  .featureIcon {
+    font-size: 2rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aboutTitle {
+    font-size: 2rem !important;
   }
   
-  .aboutSectionContainer2 > a > svg {
-    font-size: 4vmax;
+  .aboutSectionContainer {
+    padding: 1.5rem;
   }
   
-  .youtubeSvgIcon {
-    color: tomato;
+  .founderSection {
+    padding: 1rem;
   }
   
-  .instagramSvgIcon {
-    color: rgb(144, 81, 202);
+  .founderAvatar {
+    width: 80px !important;
+    height: 80px !important;
   }
   
-  @media screen and (max-width: 600px) {
-    .aboutSectionContainer > div {
-      display: block;
-    }
-  
-    .aboutSectionContainer > h1 {
-      font: 400 5vmax "Roboto";
-      margin: 3vmax;
-    }
-  
-    .aboutSectionContainer > div > div > p {
-      font: 100 2vmax "Roboto";
-    }
-  
-    .aboutSectionContainer > div > div > span {
-      font: 100 1.4vmax "Roboto";
-      width: 70%;
-    }
-  
-    .aboutSectionContainer2 {
-      border-left: none;
-    }
-  
-    .aboutSectionContainer2 > h2 {
-      font: 100 3vmax "Roboto";
-      margin: 2vmax;
-    }
-  
-    .aboutSectionContainer2 > a > svg {
-      font-size: 6vmax;
-      margin: 1vmax;
-    }
+  .founderName {
+    font-size: 1.3rem !important;
   }
+  
+  .featuresTitle {
+    font-size: 1.5rem !important;
+  }
+  
+  .featureCard {
+    padding: 1rem;
+  }
+  
+  .featureIcon {
+    font-size: 1.8rem !important;
+  }
+}
