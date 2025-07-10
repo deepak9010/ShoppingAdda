@@ -270,159 +270,7 @@
     z-index: -1;
   }
   
-  /* Enhanced product cards */
-  .productCard {
-    width: 100%;
-    max-width: 320px;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: #e0e0e0;
-    padding: 1.5rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: rgba(26, 26, 26, 0.9);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    justify-self: center;
-    animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  }
-  
-  .productCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #333333, #1a1a1a, #404040);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-    z-index: 1;
-  }
-  
-  .productCard:hover::before {
-    transform: scaleX(1);
-  }
-  
-  .productCard > img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease;
-  }
-  
-  .productCard:hover > img {
-    transform: scale(1.05);
-  }
-  
-  .productCard > div {
-    margin: 0.5rem 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .productCardSpan {
-    font: 500 0.9rem "Roboto", sans-serif;
-    color: #a0a0a0;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  
-  .productCard > p {
-    font: 600 1.1rem "Roboto", sans-serif;
-    margin: 0.75rem 0;
-    color: #e0e0e0;
-    line-height: 1.4;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-  
-  .productCard > span {
-    font: 700 1.2rem "Roboto", sans-serif;
-    color: #ff6b6b;
-    margin: 0.5rem 0;
-    display: block;
-  }
-  
-  .productCard:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(131, 129, 129, 0.4);
-    background: rgba(223, 216, 216, 0.95);
-  }
-  
-  /* Enhanced animations for staggered loading */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .productCard:nth-child(1) { animation-delay: 0.1s; }
-  .productCard:nth-child(2) { animation-delay: 0.2s; }
-  .productCard:nth-child(3) { animation-delay: 0.3s; }
-  .productCard:nth-child(4) { animation-delay: 0.4s; }
-  .productCard:nth-child(5) { animation-delay: 0.5s; }
-  .productCard:nth-child(6) { animation-delay: 0.6s; }
-  .productCard:nth-child(7) { animation-delay: 0.7s; }
-  .productCard:nth-child(8) { animation-delay: 0.8s; }
-  
-  /* Enhanced rating stars */
-  .productCard .rating-stars {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  
-  .productCard .rating-stars svg {
-    color: #ffc107;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-  }
-  
-  /* Price styling enhancements */
-  .productCard .price-section {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  
-  .productCard .current-price {
-    font: 700 1.3rem "Roboto", sans-serif;
-    color: #ff6b6b;
-  }
-  
-  .productCard .original-price {
-    font: 500 1rem "Roboto", sans-serif;
-    color: #a0a0a0;
-    text-decoration: line-through;
-  }
-  
-  .productCard .discount-badge {
-    background: linear-gradient(135deg, #28a745, #20c997);
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 6px;
-    font: 600 0.75rem "Roboto", sans-serif;
-    margin-left: auto;
-  }
-  
+
   /* Responsive design */
   @media screen and (max-width: 1200px) {
     .container {
@@ -453,13 +301,6 @@
       margin: 2rem auto;
     }
     
-    .productCard {
-      padding: 1.25rem;
-    }
-    
-    .productCard > img {
-      height: 180px;
-    }
   }
   
   @media screen and (max-width: 600px) {
@@ -474,28 +315,6 @@
       width: 95vw;
       padding: 1rem;
     }
-    
-    .productCard {
-      max-width: 100%;
-    }
-    
-    .productCard > p {
-      font-size: 1.1rem;
-    }
-    
-    .productCard > div {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.5rem;
-    }
-    
-    .productCard > span {
-      font-size: 1.2rem;
-    }
-    
-    .productCardSpan {
-      font-size: 0.9rem;
-    }
   }
   
   @media screen and (max-width: 480px) {
@@ -509,79 +328,12 @@
       padding: 0.5rem;
       margin: 1.5rem auto;
     }
-    
-    .productCard {
-      padding: 1rem;
-    }
-    
-    .productCard > img {
-      height: 160px;
-    }
   }
   
-  /* Loading state for product cards */
-  .productCard.loading {
-    background: linear-gradient(90deg, #2a2a2a 25%, #1a1a1a 50%, #2a2a2a 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-  }
-  
-  @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
-  }
-  
-  /* Hover effect for better interactivity */
-  .productCard::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(64, 64, 64, 0.1), rgba(32, 32, 32, 0.1));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-  }
-  
-  .productCard:hover::after {
-    opacity: 1;
-  }
-  
-  /* Enhanced focus states for accessibility */
-  .productCard:focus {
-    outline: 3px solid rgba(128, 128, 128, 0.5);
-    outline-offset: 2px;
-  }
-  
-  /* Additional enhancements for better visual hierarchy */
-  .productCard .product-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(64, 64, 64, 0.9);
-    color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 12px;
-    font: 600 0.7rem "Roboto", sans-serif;
-    /* backdrop-filter: blur(10px); */
-  }
-  
-  .productCard .product-category {
-    font: 500 0.8rem "Roboto", sans-serif;
-    color: #a0a0a0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Smooth transitions for all interactive elements */
   * {
     transition: all 0.3s ease;
   }
   
-  /* Custom scrollbar for consistency */
   ::-webkit-scrollbar {
     width: 8px;
   }
