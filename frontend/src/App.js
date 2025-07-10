@@ -90,7 +90,6 @@ function App() {
         <Route exact path="/password/forgot" element={<ForgotPassword />} />
         <Route exact path="/password/reset/:token" element={<ResetPassword />} />
         <Route exact path="/login" element={<LoginSignUp />} />
-        <Route exact path="/cart" element={<Cart />} />
 
         <Route element={<ProtectedRoute />}>
           <Route path="/account" element={<Profile />} />
@@ -103,6 +102,7 @@ function App() {
           <Route path="/success" element={<OrderSuccess />} />
           <Route exact path="/orders" element={<MyOrders />} />
           <Route exact path="/order/:id" element={<OrderDetails />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Route>
 
         <Route element={<ProtectedRoute isAdmin={true} />}>
