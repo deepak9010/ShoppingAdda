@@ -256,7 +256,8 @@
     width: 90vw;
     max-width: 1400px;
     padding: 2rem;
-    background: rgba(225, 225, 225, 0.8);
+    /* background: rgba(225, 225, 225, 0.8); */
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
     /* backdrop-filter: blur(10px); */
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
