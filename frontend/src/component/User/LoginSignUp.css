@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
-  position: fixed;
+  /* position: fixed; */
   top: 0%;
   left: 0;
 }
