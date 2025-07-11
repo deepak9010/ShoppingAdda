@@ -25,13 +25,14 @@
   align-items: flex-start;
 }
 .customCarousel {
-  width: 80%;
+  width: 90%;
 }
 .CarouselImage {
-  height: 280px;
+  height: 400px;
   object-fit: cover;
   border-radius: 15px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: -webkit-fill-available;
 }
 .detailsBlock-1 > h2 {
   color: rgba(255, 255, 255, 0.9);
