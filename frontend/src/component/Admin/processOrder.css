@@ -1,43 +1,255 @@
 .updateOrderForm {
-    margin: 5vmax 0;
-    padding: 3vmax;
-    background-color: white;
+  margin: 5vmax 0;
+  padding: 3vmax;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.updateOrderForm > h1 {
+  color: rgba(255, 255, 255, 0.9);
+  font: 500 2vmax "Roboto";
+  text-align: center;
+  margin-bottom: 2vmax;
+}
+
+.updateOrderForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  margin-bottom: 1.5vmax;
+}
+
+.updateOrderForm > div > select {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  margin: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font: 300 0.9vmax "Roboto";
+  outline: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.updateOrderForm > div > select:focus {
+  border: 1px solid #c6c6cc;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(224, 224, 224, 0.1);
+}
+
+.updateOrderForm > div > select option {
+  background: #2c2c2c;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5vmax;
+}
+
+.updateOrderForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.6vmax;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+}
+
+#createProductBtn {
+  border: none;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: rgba(255, 255, 255, 0.9);
+  font: 500 1.2vmax "Roboto";
+  width: 100%;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
+  margin-top: 1vmax;
+}
+
+#createProductBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+#createProductBtn:disabled {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Order details styling to match dark theme */
+.confirmOrderPage {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  min-height: 100vh;
+  padding: 2vmax;
+  color: rgba(255, 255, 255, 0.9);
+  gap: 1rem;
+}
+
+.confirmshippingArea {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2vmax;
+  margin-bottom: 2vmax;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.confirmshippingArea h4 {
+  color: rgba(255, 255, 255, 0.9);
+  font: 500 1.8vmax "Roboto";
+  margin-bottom: 1vmax;
+}
+
+.orderDetailsContainerBox {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1.5vmax;
+  margin-bottom: 2vmax;
+}
+
+.orderDetailsContainerBox > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vmax;
+}
+
+.orderDetailsContainerBox > div > p {
+  color: rgba(255, 255, 255, 0.7);
+  font: 400 1.1vmax "Roboto";
+  margin-right: 1vmax;
+}
+
+.orderDetailsContainerBox > div > span {
+  color: rgba(255, 255, 255, 0.9);
+  font: 300 1vmax "Roboto";
+}
+
+.greenColor {
+  color: #4ade80 !important;
+}
+
+.redColor {
+  color: #f87171 !important;
+}
+
+.confirmCartItems {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2vmax;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.confirmCartItems h4 {
+  color: rgba(255, 255, 255, 0.9);
+  font: 500 1.8vmax "Roboto";
+  margin-bottom: 1vmax;
+}
+
+.confirmCartItemsContainer {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 1.5vmax;
+}
+
+.confirmCartItemsContainer > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1vmax;
+  padding: 1vmax;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.confirmCartItemsContainer > div > img {
+  width: 3vmax;
+  height: 3vmax;
+  border-radius: 8px;
+  margin-right: 1vmax;
+}
+
+.confirmCartItemsContainer > div > a {
+  color: #4f46e5;
+  text-decoration: none;
+  font: 400 1.1vmax "Roboto";
+  margin-right: 1vmax;
+  transition: all 0.3s ease;
+}
+
+.confirmCartItemsContainer > div > a:hover {
+  color: #6366f1;
+}
+
+.confirmCartItemsContainer > div > span {
+  color: rgba(255, 255, 255, 0.8);
+  font: 300 1vmax "Roboto";
+}
+
+@media screen and (max-width: 600px) {
+  .updateOrderForm {
+    padding: 5vmax;
   }
-  
-  .updateOrderForm > div {
-    display: flex;
-    width: 100%;
-    align-items: center;
+
+  .updateOrderForm > h1 {
+    font: 500 3vmax "Roboto";
   }
+
   .updateOrderForm > div > select {
-    padding: 1vmax 4vmax;
-    margin: 2rem 0;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.267);
-    border-radius: 4px;
-    font: 300 0.9vmax cursive;
-    outline: none;
+    padding: 2.5vmax 5vmax;
+    font: 300 1.7vmax "Roboto";
   }
-  
+
   .updateOrderForm > div > svg {
-    position: absolute;
-    transform: translateX(1vmax);
-    font-size: 1.6vmax;
-    color: rgba(0, 0, 0, 0.623);
+    font-size: 2.8vmax;
   }
-  
-  @media screen and (max-width: 600px) {
-    .updateOrderForm {
-      padding: 5vmax;
-    }
-  
-    .updateOrderForm > div > select {
-      padding: 2.5vmax 5vmax;
-      font: 300 1.7vmax cursive;
-    }
-  
-    .updateOrderForm > div > svg {
-      font-size: 2.8vmax;
-    }
+
+  #createProductBtn {
+    font: 500 1.9vmax "Roboto";
+    padding: 1.8vmax;
   }
+
+  .confirmOrderPage {
+    padding: 5vmax;
+  }
+
+  .confirmshippingArea,
+  .confirmCartItems {
+    padding: 5vmax;
+  }
+
+  .confirmshippingArea h4,
+  .confirmCartItems h4 {
+    font: 500 2.5vmax "Roboto";
+  }
+
+  .orderDetailsContainerBox > div > p {
+    font: 400 1.8vmax "Roboto";
+  }
+
+  .orderDetailsContainerBox > div > span {
+    font: 300 1.5vmax "Roboto";
+  }
+
+  .confirmCartItemsContainer > div > img {
+    width: 5vmax;
+    height: 5vmax;
+  }
+
+  .confirmCartItemsContainer > div > a {
+    font: 400 1.8vmax "Roboto";
+  }
+
+  .confirmCartItemsContainer > div > span {
+    font: 300 1.5vmax "Roboto";
+  }
+}
