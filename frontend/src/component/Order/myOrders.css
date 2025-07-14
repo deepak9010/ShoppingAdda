@@ -1,80 +1,220 @@
 .myOrdersPage {
-    width: 100vw;
-    max-width: 100%;
-    padding: 1vmax 7vmax;
-    box-sizing: border-box;
-    background-color: rgb(235, 235, 235);
-    position: fixed;
-    top: 55px;
-    left: 0;
-    height: 94vh;
-    display: flex;
-    flex-direction: column;
+  width: 100vw;
+  max-width: 100%;
+  padding: 1vmax 7vmax;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  position: fixed;
+  top: 55px;
+  left: 0;
+  height: 94vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#myOrdersHeading {
+  text-align: center;
+  font: 400 1.2vmax "Roboto";
+  padding: 0.5vmax;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.5s;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 1vmax;
+  backdrop-filter: blur(10px);
+}
+
+.myOrdersTable {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.myOrdersTable div {
+  font: 300 1vmax "Roboto";
+  color: rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+.myOrdersTable a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.myOrdersTable a:hover {
+  color: #4f46e5;
+  transform: scale(1.1);
+}
+
+/* DataGrid Header Styling */
+.MuiDataGrid-columnHeader {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 1vmax !important;
+}
+
+.MuiDataGrid-columnHeader div {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font: 500 1.1vmax "Roboto" !important;
+}
+
+/* DataGrid Cell Styling */
+.MuiDataGrid-cell {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiDataGrid-row {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.MuiDataGrid-row:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* DataGrid Root Styling */
+.MuiDataGrid-root {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Override MUI DataGrid container backgrounds */
+.MuiDataGrid-root .MuiDataGrid-container--top [role=row],
+.MuiDataGrid-root .MuiDataGrid-container--bottom [role=row] {
+  background: transparent !important;
+}
+
+/* Additional DataGrid container overrides */
+.MuiDataGrid-container--top,
+.MuiDataGrid-container--bottom {
+  background: transparent !important;
+}
+
+/* Footer Styling */
+.MuiDataGrid-footerContainer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.MuiDataGrid-footerContainer div {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Pagination Styling */
+.MuiTablePagination-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiTablePagination-selectLabel,
+.MuiTablePagination-displayedRows {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiIconButton-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiIconButton-root:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Select Dropdown Styling */
+.MuiSelect-select {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiSelect-icon {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiDataGrid-iconSeparator {
+  display: none !important;
+}
+
+/* Status Colors */
+.greenColor {
+  color: #4ade80 !important;
+  font-weight: 600 !important;
+}
+
+.redColor {
+  color: #f87171 !important;
+  font-weight: 600 !important;
+}
+
+/* Scrollbar Styling */
+.MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 900px) {
+  .myOrdersPage {
+    padding: 1vmax 3vmax;
+    height: 93vh;
   }
-  
+
   #myOrdersHeading {
-    text-align: center;
-    font: 400 1.2vmax "Roboto";
-    padding: 0.5vmax;
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    transition: all 0.5s;
-    background-color: rgb(44, 44, 44);
+    font: 400 1.8vmax "Roboto";
+    padding: 2vmax;
   }
-  
-  .myOrdersTable {
-    background-color: white;
-  }
-  
+
   .myOrdersTable div {
-    font: 300 1vmax "Roboto";
-    color: rgba(0, 0, 0, 0.678);
-    border: none;
+    font: 300 1.5vmax "Roboto";
   }
-  
-  .myOrdersTable a {
-    color: rgba(0, 0, 0, 0.527);
-    transition: all 0.5s;
-  }
-  
-  .myOrdersTable a:hover {
-    color: tomato;
-  }
-  
+
   .MuiDataGrid-columnHeader {
-    background-color: tomato;
-    padding: 1vmax !important;
+    padding: 15px !important;
   }
-  
+
   .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
-    font: 500 1.1vmax "Roboto" !important;
+    font: 500 1.8vmax "Roboto" !important;
   }
-  
-  .MuiDataGrid-iconSeparator {
-    display: none !important;
+}
+
+@media screen and (max-width: 600px) {
+  .myOrdersPage {
+    padding: 0;
+    height: 93vh;
   }
-  
-  @media screen and (max-width: 600px) {
-    .myOrdersPage {
-      padding: 0;
-      height: 93vh;
-    }
-  
-    #myOrdersHeading {
-      font: 400 2.2vmax "Roboto";
-      padding: 4vw;
-    }
-  
-    .myOrdersTable div {
-      font: 300 4vw "Roboto";
-    }
-  
-    .MuiDataGrid-columnHeader {
-      padding: 20px !important;
-    }
-  
-    .MuiDataGrid-columnHeader div {
-      font: 500 5vw "Roboto" !important;
-    }
+
+  #myOrdersHeading {
+    font: 400 2.2vmax "Roboto";
+    padding: 4vw;
+    margin: 2vw;
   }
+
+  .myOrdersTable div {
+    font: 300 4vw "Roboto";
+  }
+
+  .MuiDataGrid-columnHeader {
+    padding: 20px !important;
+  }
+
+  .MuiDataGrid-columnHeader div {
+    font: 500 5vw "Roboto" !important;
+  }
+}
