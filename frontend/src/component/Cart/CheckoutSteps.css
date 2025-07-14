@@ -1,13 +1,120 @@
 .MuiStepConnector-line {
-    display: none !important;
+  display: none !important;
+}
+
+.MuiStepConnector-root {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.MuiStepConnector-active,
+.MuiStepConnector-completed {
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Dark theme overrides for MUI Stepper components */
+.MuiStepper-root {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  padding: 2rem 0 !important;
+}
+
+.MuiStepLabel-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.MuiStepLabel-active {
+  color: white !important;
+}
+
+.MuiStepLabel-completed {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.MuiStepIcon-root {
+  color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50% !important;
+}
+
+.MuiStepIcon-active {
+  color: white !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important;
+}
+
+.MuiStepIcon-completed {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.15) !important;
+}
+
+.MuiStepIcon-text {
+  fill: rgba(255, 255, 255, 0.8) !important;
+}
+
+.MuiStepLabel-label {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-weight: 300 !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-active {
+  color: white !important;
+  font-weight: 500 !important;
+}
+
+.MuiStepLabel-label.MuiStepLabel-completed {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 400 !important;
+}
+
+/* Typography overrides */
+.MuiTypography-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-family: 'Roboto', sans-serif !important;
+}
+
+.MuiStepLabel-active .MuiTypography-root {
+  color: white !important;
+}
+
+.MuiStepLabel-completed .MuiTypography-root {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Custom animations */
+.MuiStepIcon-root {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.MuiStepIcon-active {
+  animation: stepGlow 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes stepGlow {
+  0% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2) !important;
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4) !important;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .MuiStepper-root {
+    padding: 1rem 0 !important;
   }
   
-  .MuiStepConnector-root {
-    height: 1px;
-    background-color: rgba(0, 0, 0, 0.349);
+  .MuiStepIcon-root {
+    width: 32px !important;
+    height: 32px !important;
   }
   
-  .MuiStepConnector-active,
-  .MuiStepConnector-completed {
-    background-color: tomato;
+  .MuiStepLabel-label {
+    font-size: 0.75rem !important;
   }
+}
