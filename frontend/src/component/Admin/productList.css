@@ -1,54 +1,352 @@
 .productListContainer {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-left: 1px solid rgba(0, 0, 0, 0.158);
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 2rem;
+}
+
+#productListHeading {
+  font: 300 2.5rem "Roboto";
+  padding: 1rem;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  margin: 2rem 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* background: rgba(79, 70, 229, 0.1); */
+  border-radius: 12px;
+  /* border: 1px solid rgba(255, 255, 255, 0.1); */
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  z-index: 1001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.productListTable {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+/* DataGrid root styling */
+.productListTable .MuiDataGrid-root {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Header styling */
+.productListTable .MuiDataGrid-columnHeaders {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px 12px 0 0 !important;
+  z-index: 1001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.productListTable .MuiDataGrid-columnHeader {
+  background: transparent !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.productListTable .MuiDataGrid-columnHeader div,
+.productListTable .MuiDataGrid-columnHeaderTitle {
+  color: rgba(255, 255, 255, 0.95) !important;
+  font: 400 1.1rem "Roboto" !important;
+  font-weight: 500 !important;
+}
+
+/* Row styling */
+.productListTable .MuiDataGrid-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background: transparent !important;
+  transition: all 0.3s ease;
+}
+
+.productListTable .MuiDataGrid-row:hover {
+  background: rgba(91, 90, 105, 0.1) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.productListTable .MuiDataGrid-row:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.02) !important;
+}
+
+.productListTable .MuiDataGrid-row:nth-of-type(even):hover {
+  background: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Cell styling */
+.productListTable .MuiDataGrid-cell {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font: 300 1rem "Roboto" !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-bottom: none !important;
+  padding: 1rem 0.5rem !important;
+}
+
+.productListTable .MuiDataGrid-cell:focus {
+  outline: 2px solid rgba(79, 70, 229, 0.5) !important;
+  outline-offset: -2px !important;
+}
+
+/* Action buttons styling */
+.productListTable a,
+.productListTable button {
+  color: rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.3s ease !important;
+  margin: -2rem 0.5rem !important;
+  padding: 0.5rem !important;
+  border-radius: 6px !important;
+  background: transparent !important;
+  border: none !important;
+  min-width: auto !important;
+}
+
+.productListTable a:hover {
+  color: rgba(79, 70, 229, 0.9) !important;
+  background: rgba(79, 70, 229, 0.1) !important;
+  transform: scale(1.1) !important;
+}
+
+.productListTable button:hover {
+  color: rgba(239, 68, 68, 0.9) !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Status colors */
+.productListTable .greenColor {
+  color: rgba(34, 197, 94, 0.9) !important;
+  font-weight: 500 !important;
+}
+
+.productListTable .redColor {
+  color: rgba(239, 68, 68, 0.9) !important;
+  font-weight: 500 !important;
+}
+
+/* Pagination styling */
+.productListTable .MuiDataGrid-footerContainer {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px 12px 0 0 !important;
+  z-index: 1001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.productListTable .MuiDataGrid-footerContainer .MuiTablePagination-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-footerContainer .MuiTablePagination-selectLabel,
+.productListTable .MuiDataGrid-footerContainer .MuiTablePagination-displayedRows {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-footerContainer .MuiSelect-select {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-footerContainer .MuiIconButton-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.productListTable .MuiDataGrid-footerContainer .MuiIconButton-root:hover {
+  color: rgba(79, 70, 229, 0.9) !important;
+  background: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Toolbar styling */
+.productListTable .MuiDataGrid-toolbar {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.productListTable .MuiDataGrid-toolbar .MuiButton-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-toolbar .MuiButton-root:hover {
+  color: rgba(79, 70, 229, 0.9) !important;
+  background: rgba(79, 70, 229, 0.1) !important;
+}
+
+/* Scrollbar styling */
+.productListTable .MuiDataGrid-virtualScroller::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.productListTable .MuiDataGrid-virtualScroller::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.productListTable .MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb {
+  background: rgba(79, 70, 229, 0.3);
+  border-radius: 4px;
+}
+
+.productListTable .MuiDataGrid-virtualScroller::-webkit-scrollbar-thumb:hover {
+  background: rgba(79, 70, 229, 0.5);
+}
+
+/* Selection styling */
+.productListTable .MuiDataGrid-row.Mui-selected {
+  background: rgba(79, 70, 229, 0.2) !important;
+}
+
+.productListTable .MuiDataGrid-row.Mui-selected:hover {
+  background: rgba(79, 70, 229, 0.25) !important;
+}
+
+/* Checkbox styling */
+.productListTable .MuiCheckbox-root {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.productListTable .MuiCheckbox-root.Mui-checked {
+  color: rgba(79, 70, 229, 0.9) !important;
+}
+
+/* Loading overlay */
+.productListTable .MuiDataGrid-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
+
+.productListTable .MuiCircularProgress-root {
+  color: rgba(79, 70, 229, 0.9) !important;
+}
+
+/* Menu styling */
+.productListTable .MuiDataGrid-menu {
+  background: rgba(26, 26, 26, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+.productListTable .MuiDataGrid-menu .MuiMenuItem-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-menu .MuiMenuItem-root:hover {
+  background: rgba(79, 70, 229, 0.1) !important;
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Filter panel styling */
+.productListTable .MuiDataGrid-filterForm {
+  background: rgba(26, 26, 26, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+.productListTable .MuiDataGrid-filterForm .MuiFormControl-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.productListTable .MuiDataGrid-filterForm .MuiInputBase-root {
+  color: rgba(255, 255, 255, 0.8) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Mobile responsiveness */
+@media screen and (max-width: 900px) {
+  .productListContainer {
+    padding: 1.5rem 1rem;
   }
   
   #productListHeading {
-    font: 400 2rem "Roboto";
-    padding: 0.5vmax;
-    box-sizing: border-box;
-    color: rgba(0, 0, 0, 0.637);
-    transition: all 0.5s;
-    margin: 2rem;
-    text-align: center;
+    font: 300 2rem "Roboto";
+    margin: 1.5rem 0;
   }
   
-  .productListTable {
-    background-color: white;
-    border: none !important;
+  .productListTable .MuiDataGrid-cell {
+    font: 300 0.9rem "Roboto" !important;
+    padding: 0.8rem 0.3rem !important;
   }
   
-  .productListTable div {
-    font: 300 1vmax "Roboto";
-    color: rgba(0, 0, 0, 0.678);
-    border: none !important;
+  .productListTable .MuiDataGrid-columnHeader div {
+    font: 400 1rem "Roboto" !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .productListContainer {
+    padding: 1rem 0.5rem;
+  }
+  
+  #productListHeading {
+    font: 300 1.5rem "Roboto";
+    margin: 1rem 0;
+    padding: 0.8rem;
+  }
+  
+  .productListTable .MuiDataGrid-cell {
+    font: 300 0.8rem "Roboto" !important;
+    padding: 0.6rem 0.2rem !important;
+  }
+  
+  .productListTable .MuiDataGrid-columnHeader div {
+    font: 400 0.9rem "Roboto" !important;
   }
   
   .productListTable a,
   .productListTable button {
-    color: rgba(0, 0, 0, 0.527);
-    transition: all 0.5s;
+    margin: 0 0.2rem !important;
+    padding: 0.3rem !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .productListContainer {
+    padding: 0.5rem;
   }
   
-  .productListTable a:hover {
-    color: tomato;
+  #productListHeading {
+    font: 300 1.2rem "Roboto";
+    margin: 0.5rem 0;
   }
   
-  .productListTable button:hover {
-    color: rgb(236, 30, 30);
+  .productListTable {
+    border-radius: 8px !important;
   }
   
-  .MuiDataGrid-columnHeader div {
-    color: rgb(255, 255, 255);
+  .productListTable .MuiDataGrid-cell {
+    font: 300 0.7rem "Roboto" !important;
+    padding: 0.4rem 0.1rem !important;
   }
   
-  @media screen and (max-width: 600px) {
-    .productListTable div {
-      font: 300 4vw "Roboto";
-    }
+  .productListTable .MuiDataGrid-columnHeader div {
+    font: 400 0.8rem "Roboto" !important;
   }
+}
+
+/* Animation for smooth transitions */
+.productListTable * {
+  transition: all 0.3s ease !important;
+}
+
+/* Custom glassmorphism effect */
+.productListTable::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, rgba(168, 85, 247, 0.1) 100%);
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: -1;
+}
