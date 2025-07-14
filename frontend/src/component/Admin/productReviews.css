@@ -1,50 +1,196 @@
 .productReviewsContainer {
-    width: 100%;
-    box-sizing: border-box;
-    background-color: rgb(255, 255, 255);
-    border-left: 1px solid rgba(0, 0, 0, 0.158);
-    height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* Background effects similar to contact page */
+.productReviewsContainer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.productReviewsContainer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.08), transparent),
+    radial-gradient(1px 1px at 40px 70px, rgba(255, 255, 255, 0.04), transparent),
+    radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.06), transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.04), transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: floatingParticles 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatingParticles {
+  0% {
+    transform: translate(0, 0);
   }
-  
-  .productReviewsForm {
-    width: 20rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-    padding: 3vmax;
-    background-color: white;
+  100% {
+    transform: translate(-200px, -100px);
   }
-  
-  .productReviewsFormHeading {
-    color: rgba(0, 0, 0, 0.733);
-    font: 300 2rem "Roboto";
-    text-align: center;
+}
+
+.productReviewsForm {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+  transform: translateY(-10px);
+  animation: formSlideIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes formSlideIn {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
-  .productReviewsForm > div {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    margin: 2rem;
+  100% {
+    transform: translateY(0);
+    opacity: 1;
   }
-  .productReviewsForm > div > input {
-    padding: 1vmax 4vmax;
-    padding-right: 1vmax;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.267);
-    border-radius: 4px;
-    font: 300 0.9vmax cursive;
-    outline: none;
-  }
-  
-  .productReviewsForm > div > svg {
-    position: absolute;
-    transform: translateX(1vmax);
-    font-size: 1.6vmax;
-    color: rgba(0, 0, 0, 0.623);
-  }
+}
+
+.productReviewsFormHeading {
+  color: rgba(255, 255, 255, 0.95);
+  font: 600 2rem "Roboto";
+  text-align: center;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.productReviewsForm > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.productReviewsForm > div > input {
+  padding: 1rem 1rem 1rem 3.5rem;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font: 400 1rem "Roboto";
+  outline: none;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.productReviewsForm > div > input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.productReviewsForm > div > input:focus {
+  border-color: rgba(79, 70, 229, 0.6);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transform: translateY(-2px);
+}
+
+.productReviewsForm > div > svg {
+  position: absolute;
+  left: 1rem;
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.productReviewsForm > div > input:focus + svg,
+.productReviewsForm > div:hover > svg {
+  color: rgba(79, 70, 229, 0.8);
+  transform: scale(1.1);
+}
+
+/* Search button styling */
+#createProductBtn {
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%) !important;
+  color: rgb(0, 0, 0) !important;
+  border: none !important;
+  padding: 1rem 2rem !important;
+  border-radius: 12px !important;
+  font: 500 1rem "Roboto" !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-transform: none !important;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3) !important;
+  margin-top: 1rem !important;
+  min-width: 120px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+#createProductBtn:hover {
+  background: linear-gradient(135deg, #d8d8dd 0%, #dbdbdb 100%);
+  box-shadow: 0 6px 20px rgba(167, 167, 173, 0.4);
+  transform: translateY(-2px);
+}
+
+#createProductBtn:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3) !important;
+}
+
+#createProductBtn:disabled {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+#createProductBtn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+#createProductBtn:hover::before {
+  left: 100%;
+}
   
   @media screen and (max-width: 600px) {
     .productReviewsContainer {
