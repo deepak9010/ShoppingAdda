@@ -1,43 +1,119 @@
 .orderSuccess {
-    margin: auto;
-    text-align: center;
-    padding: 10vmax;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: auto;
+  text-align: center;
+  padding: 10vmax;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.orderSuccess > svg {
+  font-size: 7vmax;
+  color: #4ade80;
+  filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.4));
+  animation: successPulse 2s ease-in-out infinite;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
   }
-  .orderSuccess > svg {
-    font-size: 7vmax;
-    color: tomato;
+  50% {
+    transform: scale(1.05);
   }
-  .orderSuccess > p {
-    font-size: 2vmax;
+}
+
+.orderSuccess > p {
+  font-size: 2vmax;
+  color: rgba(255, 255, 255, 0.9);
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.8s ease-out 0.3s both;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orderSuccess > a {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1vmax 3vmax;
+  cursor: pointer;
+  font: 500 1vmax "Roboto";
+  text-decoration: none;
+  margin: 2vmax;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1;
+  animation: slideUp 0.8s ease-out 0.6s both;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.orderSuccess > a:hover {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+/* MUI Typography override for dark theme */
+.orderSuccess .MuiTypography-root {
+  color: rgba(255, 255, 255, 0.9) !important;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+@media screen and (max-width: 600px) {
+  .orderSuccess {
+    padding: 8vmax;
+  }
+
   .orderSuccess > a {
-    background-color: rgb(51, 51, 51);
-    color: white;
-    border: none;
-    padding: 1vmax 3vmax;
-    cursor: pointer;
-    font: 400 1vmax "Roboto";
-    text-decoration: none;
+    padding: 3vw 6vw;
+    font: 500 4vw "Roboto";
     margin: 2vmax;
+    border-radius: 8px;
   }
-  
-  @media screen and (max-width: 600px) {
-    .orderSuccess > a {
-      padding: 3vw 6vw;
-      font: 400 4vw "Roboto";
-      margin: 2vmax;
-    }
-  
-    .orderSuccess > svg {
-      font-size: 20vw;
-    }
-    .orderSuccess > p {
-      margin: 2vmax;
-      font-size: 5vw;
-    }
+
+  .orderSuccess > svg {
+    font-size: 20vw;
   }
+
+  .orderSuccess > p {
+    margin: 2vmax;
+    font-size: 5vw;
+  }
+
+  .orderSuccess .MuiTypography-root {
+    font-size: 5vw !important;
+  }
+}

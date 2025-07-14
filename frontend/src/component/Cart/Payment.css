@@ -1,90 +1,221 @@
 .paymentContainer {
-    display: grid;
-    place-items: center;
-    background-color: rgb(255, 255, 255);
-    height: 65vh;
-    margin: 2vmax;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 50%, #0d0d0d 100%);
+  min-height: 65vh;
+  padding: 2vmax;
+  position: relative;
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.paymentForm {
+  width: 26%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2vmax;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
   }
-  
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.paymentForm > p {
+  font: 400 2vmax "Roboto";
+  color: white;
+  background: linear-gradient(135deg, #ffffff 0%, #a0a0a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1vmax 0;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  margin-bottom: 2vmax;
+}
+
+.paymentForm > div {
+  display: flex;
+  align-items: center;
+  margin: 2vmax 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.paymentForm > div:hover {
+  transform: translateX(5px);
+}
+
+.paymentInput {
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font: 400 1vmax "Roboto";
+  transition: all 0.3s ease;
+}
+
+.paymentInput:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.paymentInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.paymentInput::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.paymentInput:-ms-input-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.paymentInput::-moz-placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.paymentForm > div > svg {
+  position: absolute;
+  transform: translateX(1vmax);
+  font-size: 1.6vmax;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.paymentForm > div:hover > svg {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.paymentFormBtn {
+  border: none;
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  color: rgb(0, 0, 0);
+  font: 500 1.2vmax "Roboto";
+  width: 100%;
+  padding: 1vmax;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  margin-top: 1vmax;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.paymentFormBtn:hover {
+  background: linear-gradient(135deg, #d8d8dd 0%, #dbdbdb 100%);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Stripe elements styling */
+.StripeElement {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1vmax 4vmax;
+  padding-right: 1vmax;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.StripeElement:focus {
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.StripeElement--invalid {
+  border-color: rgba(255, 99, 99, 0.6);
+}
+
+.StripeElement--webkit-autofill {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* MUI Typography overrides */
+.MuiTypography-root {
+  color: white !important;
+}
+
+@media screen and (max-width: 600px) {
+  .paymentContainer {
+    margin: 1vmax;
+    min-height: 70vh;
+  }
+
   .paymentForm {
-    width: 22%;
-    height: 100%;
+    width: 90%;
+    padding: 4vmax;
   }
-  
+
   .paymentForm > p {
-    font: 400 2vmax "Roboto";
-    color: rgba(0, 0, 0, 0.753);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.13);
-    padding: 1vmax 0;
-    text-align: center;
-    width: 50%;
-    margin: auto;
+    font: 400 8vw "Roboto";
+    padding: 4vw 0;
+    width: 80%;
+    margin-bottom: 4vmax;
   }
-  
+
   .paymentForm > div {
-    display: flex;
-    align-items: center;
-    margin: 2vmax 0;
+    margin: 6vw 0;
   }
-  
+
   .paymentInput {
-    padding: 1vmax 4vmax;
-    padding-right: 1vmax;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid rgba(0, 0, 0, 0.267);
-    border-radius: 4px;
-    outline: none;
+    padding: 4vw 10vw;
+    font: 400 4vw "Roboto";
   }
-  
+
   .paymentForm > div > svg {
-    position: absolute;
-    transform: translateX(1vmax);
-    font-size: 1.6vmax;
-    color: rgba(0, 0, 0, 0.623);
+    font-size: 6vw;
+    transform: translateX(2vw);
   }
-  
+
   .paymentFormBtn {
-    border: none;
-    background-color: tomato;
-    color: white;
-    font: 300 0.9vmax "Roboto";
-    width: 100%;
-    padding: 0.8vmax;
-    cursor: pointer;
-    transition: all 0.5s;
-    outline: none;
+    font: 500 4vw "Roboto";
+    padding: 4vw;
+    margin-top: 4vw;
   }
-  
-  .paymentFormBtn:hover {
-    background-color: rgb(179, 66, 46);
+}
+
+@media screen and (max-width: 768px) {
+  .paymentForm {
+    width: 60%;
   }
-  
-  @media screen and (max-width: 600px) {
-    .paymentForm {
-      width: 90%;
-    }
-  
-    .paymentForm > p {
-      font: 400 8vw "Roboto";
-      padding: 4vw 0;
-      width: 60%;
-    }
-  
-    .paymentForm > div {
-      margin: 10vw 0;
-    }
-  
-    .paymentInput {
-      padding: 4vw 10vw;
-    }
-  
-    .paymentForm > div > svg {
-      font-size: 6vw;
-    }
-  
-    .paymentFormBtn {
-      font: 300 4vw "Roboto";
-      padding: 4vw;
-    }
+}
+
+@media screen and (max-width: 480px) {
+  .paymentForm {
+    width: 95%;
+    padding: 3vmax;
   }
+
+  .paymentForm > p {
+    width: 90%;
+  }
+}
