@@ -193,7 +193,7 @@
   position: fixed;
   right: 2vmax;
   top: 5vmax;
-  z-index: 11;
+  z-index: 9999 !important;
 }
 
 /* Speed Dial Main Icon */
@@ -217,7 +217,7 @@
 
 /* Speed Dial Actions Container */
 .MuiSpeedDial-root {
-  z-index: 11;
+  z-index: 9999 !important;
 }
 
 /* Speed Dial Actions */
