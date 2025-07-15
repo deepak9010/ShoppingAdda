@@ -188,29 +188,207 @@
     height: 18px !important;
   }
 }
-
-/* Speed Dial */
+/* Speed Dial Container */
 .speedDial {
   position: fixed;
   right: 2vmax;
   top: 5vmax;
+  z-index: 11;
 }
 
+/* Speed Dial Main Icon */
 .speedDialIcon {
   width: 56px;
   height: 56px;
   border-radius: 100%;
-  background: rgba(30, 30, 30, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(30, 30, 30, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+  object-fit: cover;
+  padding: 2px;
 }
 
-/* Additional Enhancements */
-.navbar-nav {
-  align-items: center !important;
+.speedDialIcon:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  transform: scale(1.05);
 }
 
-/* Smooth animations */
-* {
-  box-sizing: border-box;
+/* Speed Dial Actions Container */
+.MuiSpeedDial-root {
+  z-index: 11;
+}
+
+/* Speed Dial Actions */
+.MuiSpeedDial-actions {
+  padding-top: 8px;
+}
+
+.MuiSpeedDialAction-fab {
+  background: rgba(40, 40, 40, 0.95) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.MuiSpeedDialAction-fab:hover {
+  background: rgba(60, 60, 60, 0.98) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-2px) scale(1.1) !important;
+}
+
+/* Speed Dial Action Icons */
+.MuiSpeedDialAction-fab .MuiSvgIcon-root {
+  color: rgba(255, 255, 255, 0.9) !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiSpeedDialAction-fab:hover .MuiSvgIcon-root {
+  color: rgba(255, 255, 255, 1) !important;
+  transform: scale(1.1) !important;
+}
+
+/* Special styling for cart icon when items present */
+.MuiSpeedDialAction-fab .MuiSvgIcon-root[style*="tomato"] {
+  color: #ff6b6b !important;
+  filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.3));
+}
+
+.MuiSpeedDialAction-fab:hover .MuiSvgIcon-root[style*="tomato"] {
+  color: #ff5252 !important;
+  filter: drop-shadow(0 0 12px rgba(255, 82, 82, 0.5));
+}
+
+/* Tooltips */
+.MuiTooltip-tooltip {
+  background: rgba(30, 30, 30, 0.95) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  padding: 8px 12px !important;
+}
+
+.MuiTooltip-arrow {
+  color: rgba(30, 30, 30, 0.95) !important;
+}
+
+.MuiTooltip-arrow::before {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Backdrop */
+.MuiBackdrop-root {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(2px) !important;
+  -webkit-backdrop-filter: blur(2px) !important;
+}
+
+/* Animation for opening/closing */
+.MuiSpeedDial-root .MuiSpeedDialAction-fab {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 900px) {
+  .speedDial {
+    right: 1.5vmax;
+    top: 4vmax;
+  }
+  
+  .speedDialIcon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .MuiSpeedDialAction-fab {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  
+  .MuiTooltip-tooltip {
+    font-size: 0.7rem !important;
+    padding: 6px 10px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .speedDial {
+    right: 1vmax;
+    top: 3vmax;
+  }
+  
+  .speedDialIcon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .MuiSpeedDialAction-fab {
+    width: 40px !important;
+    height: 40px !important;
+  }
+  
+  .MuiSpeedDialAction-fab .MuiSvgIcon-root {
+    font-size: 1.2rem !important;
+  }
+  
+  .MuiTooltip-tooltip {
+    font-size: 0.65rem !important;
+    padding: 5px 8px !important;
+  }
+}
+
+/* Additional enhancements for premium look */
+.MuiSpeedDial-root .MuiButtonBase-root {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Glassmorphism effect for actions */
+.MuiSpeedDialAction-fab {
+  background: rgba(40, 40, 40, 0.8) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.MuiSpeedDialAction-fab:hover {
+  background: rgba(60, 60, 60, 0.9) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+}
+
+/* Main speed dial button enhanced styling */
+.MuiSpeedDial-fab {
+  background: rgba(30, 30, 30, 0.95) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+  transition: all 0.3s ease !important;
+}
+
+.MuiSpeedDial-fab:hover {
+  background: rgba(40, 40, 40, 0.98) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6) !important;
+  transform: scale(1.05) !important;
 }
