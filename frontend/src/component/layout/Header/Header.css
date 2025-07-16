@@ -138,11 +138,10 @@
 /* Mobile Menu Styling - Key Fix Here */
 .navbar-collapse {
   background: rgba(30, 30, 30, 0.98) !important;
-  border-radius: 0 0 12px 12px !important;
+  border-radius:12px !important;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 1rem !important;
-  padding: 1rem !important;
+  padding: 0.5rem !important;
 }
 
 /* Container Spacing */
