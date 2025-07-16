@@ -1,8 +1,6 @@
 .custom-navbar {
   z-index: 1050;
   background: rgba(26, 26, 26, 0.95) !important;
-  /* backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -137,12 +135,14 @@
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Mobile Menu Styling */
+/* Mobile Menu Styling - Key Fix Here */
 .navbar-collapse {
   background: rgba(30, 30, 30, 0.98) !important;
-  border-radius: 12px !important;
+  border-radius: 0 0 12px 12px !important;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 1rem !important;
+  padding: 1rem !important;
 }
 
 /* Container Spacing */
@@ -170,6 +170,55 @@
   .btn-icon {
     margin: 0.5rem 0.2rem !important;
   }
+  
+  /* Mobile Menu Overlay Fix */
+  .navbar-collapse {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(30, 30, 30, 0.98) !important;
+    border-radius: 0 0 12px 12px !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    margin-top: 0 !important;
+    padding: 1rem !important;
+  }
+  
+  /* Ensure navbar itself is positioned relatively */
+  .custom-navbar {
+    position: relative !important;
+  }
+  
+  /* Mobile nav items styling */
+  .navbar-nav {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  
+  .navbar-nav .nav-item {
+    width: 100% !important;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    margin: 0.25rem 0 !important;
+  }
+  
+  /* Mobile icons container */
+  .navbar-nav.ms-auto {
+    flex-direction: row !important;
+    justify-content: center !important;
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .navbar-nav.ms-auto .nav-item {
+    width: auto !important;
+  }
 }
 
 @media (max-width: 576px) {
@@ -187,12 +236,19 @@
     width: 18px !important;
     height: 18px !important;
   }
+  
+  .navbar-collapse {
+    margin-left: -1rem !important;
+    margin-right: -1rem !important;
+    border-radius: 0 0 8px 8px !important;
+  }
 }
+
 /* Speed Dial Container */
 .speedDial {
   position: fixed;
   right: 2vmax;
-  top: 5vmax;
+  top: 8vmax;
   z-index: 9999 !important;
 }
 
@@ -231,8 +287,6 @@
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
   transition: all 0.3s ease !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .MuiSpeedDialAction-fab:hover {
@@ -272,8 +326,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
   font-size: 0.75rem !important;
   font-weight: 500 !important;
   padding: 8px 12px !important;
@@ -290,8 +342,6 @@
 /* Backdrop */
 .MuiBackdrop-root {
   background-color: rgba(0, 0, 0, 0.3) !important;
-  backdrop-filter: blur(2px) !important;
-  -webkit-backdrop-filter: blur(2px) !important;
 }
 
 /* Animation for opening/closing */
@@ -314,7 +364,7 @@
 @media screen and (max-width: 900px) {
   .speedDial {
     right: 1.5vmax;
-    top: 4vmax;
+    top: 9vmax;
   }
   
   .speedDialIcon {
@@ -336,7 +386,7 @@
 @media screen and (max-width: 600px) {
   .speedDial {
     right: 1vmax;
-    top: 3vmax;
+    top: 9vmax;
   }
   
   .speedDialIcon {
@@ -367,15 +417,11 @@
 /* Glassmorphism effect for actions */
 .MuiSpeedDialAction-fab {
   background: rgba(40, 40, 40, 0.8) !important;
-  backdrop-filter: blur(20px) !important;
-  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 .MuiSpeedDialAction-fab:hover {
   background: rgba(60, 60, 60, 0.9) !important;
-  backdrop-filter: blur(30px) !important;
-  -webkit-backdrop-filter: blur(30px) !important;
 }
 
 /* Main speed dial button enhanced styling */
